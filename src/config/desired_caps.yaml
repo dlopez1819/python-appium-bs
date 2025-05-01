@@ -1,0 +1,59 @@
+local:
+  appiumserverlocation: 'http://127.0.0.1:4723' #'http://127.0.0.1:4723/wd/hub'
+  ios:
+    platformName: 'iOS'
+    platformVersion: '17.5'
+    deviceName: 'iPhone 15 Pro'
+    automationName: 'XCUITest'
+    autoAcceptAlerts: True
+    app: "/Users/nttdata/Documents/boh_mobile_appium/apps/BadgeOfHonor.app"
+    #bundleId: "com.chrysler.JeepBOH"
+  android:
+    platformName: 'Android'
+    automationName: 'uiautomator2'
+    deviceName: 'emulator-5554'
+    app: '/Users/nttdata/Documents/boh_mobile_appium/apps/app-boh.apk'
+    platformVersion: '13'
+    language: 'en'
+    locale: 'US'
+    #appActivity: 'MainActivity'
+    skipUnlock: True
+    autoGrantPermissions: True
+    autoAcceptAlerts: True
+    enableWebviewDetailsCollection: True
+    showChromedriverLog: True
+    unicodeKeyboard: True
+    #appPackage: 'com.chrysler.JeepBOH'
+    #avd: 'pixelapi30new'
+
+browserstack:
+  appiumserverlocation: 'https://diegolopez_JMV6tn:DsRBxpbCyFu1ZhLF4w3q@hub-cloud.browserstack.com/wd/hub'
+  android:
+    app: 'bs://2343b02bc44e2cb08b87ae0f65b71bcd76e22d3b'
+    device: 'Samsung Galaxy S22'
+    os_version: '12.0'
+    project: 'Appium Automation Android'
+    build: 'browserstack-build-1'
+    name: 'first_test'
+    browserstack.idleTimeout: 300
+    platformName: 'Android'
+    unicodeKeyboard: True
+    deviceName: 'PF'
+  ios:
+    userName: 'diegolopez_JMV6tn'
+    accessKey: 'DsRBxpbCyFu1ZhLF4w3q'
+    app: 'bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595'
+    framework: 'pytest'
+    testObservability: 'true'
+    platformName: 'ios'
+    platformVersion: '17'
+    deviceName: 'iPhone 15 Pro'
+    buildIdentifier: 'bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595'
+    parallelsPerPlatform: 1
+    browserstackLocal: true
+    browserStackLocalOptions:
+      -use-system-installed-ca: true
+    buildName: browserstack-build-1
+    projectName: Default Project
+    autoAcceptAlerts: True
+

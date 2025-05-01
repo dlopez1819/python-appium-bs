@@ -1,0 +1,28 @@
+# =============================
+# Set BrowserStack Credentials
+# =============================
+userName: diegolopez_JMV6tn
+accessKey: DsRBxpbCyFu1ZhLF4w3q
+app: bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595
+framework: pytest
+platformName: ios
+deviceName: iPhone 15 Pro Max
+platformVersion: 17
+platforms:
+  - platformName: ios
+    deviceName: iPhone 15 Pro
+    platformVersion: 17
+  - platformName: ios
+    deviceName: iPhone 15 Pro Max
+    platformVersion: 17
+  - platformName: ios
+    deviceName: iPhone 16
+    platformVersion: 18
+buildIdentifier:  bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595
+parallelsPerPlatform: 1
+browserstackLocal: true
+browserStackLocalOptions:
+    -use-system-installed-ca: true
+buildName: browserstack-build-1
+projectName: Default Project
+autoAcceptAlerts: True
