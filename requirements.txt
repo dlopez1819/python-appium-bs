@@ -19,4 +19,3 @@ browserstack-local~=1.2.10
 browserstack-sdk~=1.25.7
 percy-appium-app~=2.0.7
 GitPython~=3.1.44
-allure-python-commons~=2.14.0
