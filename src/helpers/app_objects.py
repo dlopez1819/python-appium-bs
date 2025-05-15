@@ -1,3 +1,6 @@
+from selenium.webdriver.common.actions import interaction
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
+from selenium.webdriver.common.actions.pointer_input import PointerInput
 from selenium.webdriver.support.wait import WebDriverWait
 from src.helpers.appium_driver import Driver
 from selenium.webdriver.common.action_chains import ActionChains
@@ -6,6 +9,8 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import src.screen_locators.ios_screen_enums
+import src.screen_locators.android_screen_enums
 import base64
 
 def keyword_check(kwargs):
@@ -307,10 +312,26 @@ class BoH(Driver):
             self.logger.error(f"capability not found")
 
     def swipe_by_coordinates(self, start_x, start_y, end_x, end_y, duration):
-        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+        if self.appiumserver == 'local':
+            self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+        else:
+            actions = ActionChains(self.driver)
+            actions.w3c_actions = ActionBuilder(self.driver, mouse=PointerInput(interaction.POINTER_TOUCH, 'touch'))
+            actions.w3c_actions.pointer_action.move_to_location(start_x, start_y)
+            actions.w3c_actions.pointer_action.click_and_hold()
+            actions.w3c_actions.pointer_action.move_to_location(end_x, end_y)
+            actions.w3c_actions.pointer_action.release()
+            actions.w3c_actions.perform()
 
     def get_element_location(self, locator):
         return BoH.element(self, locator, n= 1).location
+
+    def get_src_screen_enums(self):
+        # return screen enums for device in use
+        if str(BoH.get_session_capabilities(self)['apps']) == 'android':
+            return src.screen_locators.android_screen_enums
+        else:
+            return src.screen_locators.ios_screen_enums
 
     # need refactor on condition
     def assert_text(self, locator, text, n=20, **kwargs):
