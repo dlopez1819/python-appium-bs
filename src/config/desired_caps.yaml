@@ -29,7 +29,7 @@ local:
 browserstack:
   appiumserverlocation: 'https://diegolopez_JMV6tn:DsRBxpbCyFu1ZhLF4w3q@hub-cloud.browserstack.com/wd/hub'
   android:
-    app: 'bs://2343b02bc44e2cb08b87ae0f65b71bcd76e22d3b'
+    app: 'bs://4752258c5a792674e2098bde323b87ee8151ef78'
     device: 'Samsung Galaxy S22'
     os_version: '12.0'
     project: 'Appium Automation Android'
@@ -37,8 +37,10 @@ browserstack:
     name: 'first_test'
     browserstack.idleTimeout: 300
     platformName: 'Android'
+    platformVersion: '12'
+    deviceName: 'Samsung Galaxy S22'
     unicodeKeyboard: True
-    deviceName: 'PF'
+    #deviceName: 'PF'
   ios:
     userName: 'diegolopez_JMV6tn'
     accessKey: 'DsRBxpbCyFu1ZhLF4w3q'
@@ -56,4 +58,3 @@ browserstack:
     buildName: browserstack-build-1
     projectName: Default Project
     autoAcceptAlerts: True
-
