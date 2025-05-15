@@ -30,9 +30,3 @@ def run_automation_test(c, m, app, env, appiumServer, device, operatingsystem):
         if os.environ.get('browserstack_build_id') is not None:
             runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --workers 5 --tests-per-worker 1 --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{operatingsystem}' --reruns 1 --junitxml='./report/xml/{m}_{device}_{operatingsystem}.xml' --html-report='./report/{m}_{device}_{operatingsystem}.html'&"
     c.run(runningCommand)
-
-""""""""""""""""""""""""""""
-def run_automation_test(c, m, app, env, appiumServer, device, os):
-    runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{os}' --reruns 1  --html-report='./report/{m}_{device}_{os}.html'&"
-    c.run(runningCommand)
-"""""""""""""""""""""""""""""
