@@ -1,5 +1,6 @@
 import pytest
 from src.common.shared_workflow import SharedWorkflow
+from src.helpers.app_objects import BoH
 from src.helpers.appium_driver import Driver
 from src.pages.login_page import LoginPage
 from src.pages.headsup_page import HeadsUpPage
