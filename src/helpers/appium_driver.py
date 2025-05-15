@@ -26,6 +26,7 @@ class Driver():
         self.logger.info("Configuring desired capabilities")
 
         desired_caps = CONFIG[appiumserver][self.apps]
+        desired_caps['apps'] = self.apps
         if self.appiumserver == "local":
             desired_caps['device'] = self.device
             desired_caps['os_version'] = self.os
@@ -75,7 +76,7 @@ class Driver():
             #remoteURL = 'https://diegolopez_JMV6tn:DsRBxpbCyFu1ZhLF4w3q@hub-cloud.browserstack.com/wd/hub' #"https://hub.browserstack.com/wd/hub"
             session_capabilities = capabilities_options
             Driver.driver = webdriver.Remote(command_executor=url, options=session_capabilities)
-
+            pass
        # Driver.driver = webdriver.Remote(url, desired_caps)
 
     def setUp2(self):
@@ -215,11 +216,14 @@ class Driver():
             self.updateBrowserstackStatus(bSave, message)
 
     @pytest.fixture(autouse=True)
-    def cli(self, app, device, appiumserver, os, env, get_logger):
-        self.apps = app
+    #def cli(self, app, device, appiumserver, os, env, get_logger):  # local
+    def cli(self, apps, device, appiumserver, os, env, get_logger):
+        #self.app = app.  # local
+        self.apps = apps
         self.device = device
         self.os = os
         self.logger = get_logger
         self.appiumserver = appiumserver
         self.env = env
         self.setUp()
+        
