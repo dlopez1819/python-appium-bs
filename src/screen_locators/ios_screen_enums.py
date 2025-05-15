@@ -76,3 +76,4 @@ class loginOktaScreen(Driver):
     cancelButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Cancel'`]")
     loginButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Log In'`]")
     keyboardOn = (AppiumBy.ACCESSIBILITY_ID, "space")
+    keyboardDone = (AppiumBy.ACCESSIBILITY_ID, "Done")
