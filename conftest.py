@@ -4,19 +4,24 @@ from src.helpers.appium_driver import Driver
 
 @pytest.hookimpl
 def pytest_addoption(parser):
-    parser.addoption('--app', action='store', default="ios", help="Choose App: ios or android")
-    parser.addoption('--device', action='store', default="simulator", help="Choose Device: simulator / emulator / real" "device")
+    # LOCAL SETTINGS
+    parser.addoption('--apps', action='store', default="android", help="Choose App: ios or android")
+    # BROWSER STACK SETTINGS
+    #parser.addoption('--app', action='store', default="ios", help="Choose App: ios or android")
+    parser.addoption('--device', action='store', default="emulator", help="Choose Device: simulator / emulator / real" "device")
     parser.addoption('--appiumServer', action='store', default="browserstack",
                      help="Choose Appium Server: local / browserstack / lambaTest")
     parser.addoption('--os', action='store', default="17",
-                     help="Choose OS version: 15 / 17")
+                     help="Choose OS version: 13 / 17")
 
     parser.addoption('--env', action='store', default="preprod",
                      help="Choose environment: preprod / production")
 
+
 @pytest.fixture(scope="session")
-def app(request):
-    return request.config.getoption("--app")
+def apps(request):
+    return request.config.getoption("--apps") # local
+    #return request.config.getoption("--app")  #Browserstack
 
 
 @pytest.fixture(scope="session")
