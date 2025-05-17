@@ -218,8 +218,8 @@ class Driver():
     @pytest.fixture(autouse=True)
     #def cli(self, app, device, appiumserver, os, env, get_logger):  # local
     def cli(self, apps, device, appiumserver, os, env, get_logger):
-        #self.app = app.  # local
-        self.apps = apps
+        self.app = app  # BS
+        #self.apps = apps  #local
         self.device = device
         self.os = os
         self.logger = get_logger
