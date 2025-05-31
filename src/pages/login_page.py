@@ -12,12 +12,23 @@ from src.helpers.app_objects import BoH
 from src.helpers.appium_driver import Driver
 
 class LoginPage(Driver):
-    global locators
+    global locators, flagOkta
     def __init__(self):
         self.width, self.height = BoH.get_screen_dimension(self)
         self.offset = 30
         self.locators = BoH.get_src_screen_enums(self)
 
+    def assertIfLoginPage(self):
+        LoginPage.__init__(self)
+        assert (BoH.is_exist(self, self.locators.LoginScreen.loginSignUpButton)) is True, "Login Page is not displayed"
+
+    def isUserSignedUp(self):
+        LoginPage.__init__(self)
+        if BoH.is_exist(self, self.locators.LoginScreen.loginSignUpButton, expected=True):
+            return False #user not logged
+        else:
+            return True #user logged
+    
     def isNormalUserLoggedIn(self):
         LoginPage.__init__(self)
         if self.apps == 'ios':
@@ -29,25 +40,60 @@ class LoginPage(Driver):
         else:
             return True  # logged in
 
+    def initLogin(self, flagOkta):
+        LoginPage.__init__(self)
+        if self.apps == 'android':
+            if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True):
+                BoH.click(self, self.locators.HeadsUpScreen.ackContinueButton)
+        else:
+            HeadsUpPage.verifyInitHeadsUp(self)
+        if flagOkta == True:
+            if BoH.is_exist(self, self.locators.NavigationScreen.exploreTrailsTitle, expected=True, n=1) is True:
+                NavigationPage.initBoHExploreNav(self)
+        else:
+            BoH.click(self, self.locators.NavigationScreen.skipButton)
+        if self.apps == 'ios':
+            LoginPage.selectPreProEnv(self)
+        else:
+            AlertsPage.allowLocationAlert(self)
+    
     def selectPreProEnv(self):
         LoginPage.__init__(self)
         AlertsPage.allowLocationAlert(self)
         BoH.is_exist(self, self.locators.LoginScreen.logoBoH, expected=True)
         if self.apps == 'ios':
             BoH.click(self, self.locators.LoginScreen.preprodButton)
-        BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
 
     def oktaUserLogin(self, test_email, test_pwd):
+        lagOkta = True
         LoginPage.__init__(self)
-        HeadsUpPage.verifyInitHeadsUp(self)
-        if BoH.is_exist(self, self.locators.NavigationScreen.exploreTrailsTitle, expected=True, n=1) is True:
-            NavigationPage.initBoHExploreNav(self)
-        if self.apps == 'ios':
-            LoginPage.selectPreProEnv(self)
-        else:
-            BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
+        LoginPage.initLogin(self, flagOkta)
+        BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
         SharedWorkflow.oktaLogin(self, test_email, test_pwd)
 
-    def loginAsGuest(self):
-        # TO DO
-        print('login')
+    def oktaUserLoginSkip(self, test_email, test_pwd):
+        flagOkta = False
+        LoginPage.__init__(self)
+        LoginPage.initLogin(self, flagOkta)
+        BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
+        SharedWorkflow.oktaLogin(self, test_email, test_pwd)
+
+    def guestUserLogin(self):
+        flagOkta = False
+        LoginPage.__init__(self)
+        LoginPage.initLogin(self, flagOkta)
+        BoH.click(self, self.locators.LoginScreen.continueAsGuessButton)
+        SharedWorkflow.loginAsGuess(self)
+
+    def onboardingLoginSkip(self, test_email, test_pwd):
+        flagOkta = False
+        LoginPage.__init__(self)
+        LoginPage.initLogin(self, flagOkta)
+
+    def userSignUp(self, test_email, test_pwd):
+        flagOkta = False
+        LoginPage.__init__(self)
+        LoginPage.initLogin(self, flagOkta)
+        BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
+        LoginPage.authBOHSignInAlert(self)
+        SharedWorkflow.oktaLogin(self, test_email, test_pwd)
