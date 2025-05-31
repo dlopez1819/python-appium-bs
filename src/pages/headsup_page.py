@@ -21,25 +21,25 @@ class HeadsUpPage(Driver):
     def verifyInitHeadsUp(self):
         HeadsUpPage.__init__(self)
         if self.apps == 'ios':
-            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.headsUpTitle, 2)
             if BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpText, expected=True):
                 BoH.click(self, self.locators.HeadsUpScreen.continueButton)
-        BoH.wait_until_appear(self, self.locators.HeadsUpScreen.warningTitle)
         if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True):
             BoH.click(self, self.locators.HeadsUpScreen.ackContinueButton)
 
-    def verifyUserContentGuideLines(self):
-        # validate User Content Guidelines Elements in Page
+    def verifyVehicleProfile(self):
         HeadsUpPage.__init__(self)
-        BoH.wait_until_appear(self, self.locators.HeadsUpScreen.headsUpUserContentTitle, 5)
-        BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpUserContentText, expected=True)
-        BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpGuidelines1, expected=True)
-        BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpGuidelines2, expected=True)
-        BoH.is_exist(self, self.locators.HeadsUpScreen.logoutButton, expected=True)
-        BoH.is_exist(self, self.locators.HeadsUpScreen.privacyPolicy, expected=True)
-        BoH.is_exist(self, self.locators.HeadsUpScreen.termsOfUse, expected=True)
-        if BoH.is_exist(self, self.locators.HeadsUpScreen.acceptButton, expected=True):
-            BoH.click(self, self.locators.HeadsUpScreen.acceptButton)
+        BoH.wait_until_appear(self, self.locators.VehicleProfileScreen.updateProfileButton, 3)
+        if BoH.is_exist(self, self.locators.VehicleProfileScreen.updateProfileButton, expected=True):
+            BoH.click(self, self.locators.VehicleProfileScreen.dismissProfileButton)
+
+    def checkTrailAndBadges(self, flagLogin):
+        if flagLogin == True:
+            if self.apps == 'ios':
+                if BoH.is_exist(self, self.locators.NavigationScreen.trailAndBadgesTitle, expected=True):
+                    NavigationPage.checkTrailsAndBadgesNav(self)
+        else:
+            if BoH.is_exist(self, self.locators.NavigationScreen.trailAndBadgesTitle, expected=True):
+                BoH.click(self, self.locators.NavigationScreen.closePage)
 
 
 
