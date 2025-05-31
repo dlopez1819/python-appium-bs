@@ -39,19 +39,14 @@ class SharedWorkflow(Driver):
         print(f'Test run on {url} environment')
         # SELECT & ENTER USERNAME
         if (self.appiumserver == "browserstack") and (self.apps == 'android'):
-            BrowserstackObjects.enter_BS_Username(self, test_email)
-            """""""""
-            if BoH.is_exist(self, self.locators.loginOktaScreen.loginTab_BS, True):
-                BoH.click(self, self.locators.loginOktaScreen.loginTab_BS)
-            BoH.send_keys(self, self.locators.loginOktaScreen.username_BS, test_email)
-            """
+            BrowserstackObjects.enter_bs_username(self, test_email)
         else:
             if BoH.is_exist(self, self.locators.loginOktaScreen.loginTab, True):
                 BoH.click(self, self.locators.loginOktaScreen.loginTab)
+            BoH.wait_until_appear(self, self.locators.loginOktaScreen.username, 3)
             BoH.send_keys(self, self.locators.loginOktaScreen.username, test_email)
         if self.appiumserver == "browserstack":
-            BrowserstackObjects.swipe_BS_Page(self)
-     
+            BrowserstackObjects.swipe_bs_page(self)
         else:
             if self.apps == 'ios':
                 BoH.hideKeyboard(self, self.locators.loginOktaScreen.keyboardOn, 390, self.height / 2 - self.offset)
@@ -62,8 +57,9 @@ class SharedWorkflow(Driver):
                 BoH.hideKeyboard(self, self.locators.loginOktaScreen.keyboardOn, 390, self.height / 2 - self.offset)
         # SELECT & ENTER PASSWORD
         if self.appiumserver == "browserstack" and self.apps == 'android':
-            BrowserstackObjects.enter_BS_Password(self, test_pwd)
+            BrowserstackObjects.enter_bs_password(self, test_pwd)
         else:
+            BoH.wait_until_appear(self, self.locators.loginOktaScreen.password, 5)
             BoH.send_keys(self, self.locators.loginOktaScreen.password, test_pwd)
 
         if BoH.is_exist(self, self.locators.loginOktaScreen.loginButton, False) is not True:
@@ -73,19 +69,29 @@ class SharedWorkflow(Driver):
                                  (self.height / 2 - self.offset), 100)
         # CLICK ON LOGIN BUTTON
         if self.appiumserver == "browserstack" and self.apps == 'android':
-            BrowserstackObjects.tap_BS_LoginButton(self)
+            BrowserstackObjects.tap_bs_login_button(self)
+            BoH.wait_until_disappear(self, self.locators.loginOktaScreen.loginButton_BS, 5)
         else:
             BoH.click(self, self.locators.loginOktaScreen.loginButton)
+            BoH.wait_until_disappear(self, self.locators.loginOktaScreen.loginButton, 5)
 
     def loginAsGuess(self):
-        # TO DO
-        print("loginAsGuess")
+        SharedWorkflow.__init__(self)
+        BoH.wait_until_appear(self, self.locators.loginAsGuest.dontHaveProfileTitle, 2)
+        if BoH.is_exist(self, self.locators.loginAsGuest.continueAsGuestButton, expected=True):
+            BoH.click(self, self.locators.loginAsGuest.continueAsGuestButton)
 
-    def home(self):
-        BoH.is_exist(self, HomeScreen.featuredTopNavBar)
-        BoH.is_exist(self, HomeScreen.imageFeaturedTrail)
-        BoH.is_exist(self, HomeScreen.homeBottomNavBar)
-        BoH.is_exist(self, HomeScreen.checkinTrailButton)
-        BoH.is_exist(self, HomeScreen.featuredTrailRowContainer)
-        BoH.is_exist(self, HomeScreen.featuredTrailWeatherContainer)
+
+    def scrollDown(self, startX, startY, endX, endY):
+        SharedWorkflow.__init__(self)
+        if self.appiumserver == 'local':
+            if self.apps == 'ios':
+                BoH.swipe_by_coordinates(self, startX, startY, endX, endY, 50)
+            else:
+                BoH.swipe_by_coordinates(self, startX, startY, endX, endY,500)
+        else:
+            if self.apps == 'ios':
+                BrowserstackObjects.scroll_bs_down(self)
+            else:
+                BoH.swipe_by_coordinates(self, startX, startY, endX, endY,500)
 
