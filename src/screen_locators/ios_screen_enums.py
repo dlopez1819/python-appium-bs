@@ -34,10 +34,17 @@ class HeadsUpScreen(Driver):
                                                      " invasive of another’s privacy, or racially, ethnically, unlawful, or otherwise unlawful or objectionable.")
 
     headsUpGuidelines2 = (AppiumBy.ACCESSIBILITY_ID, "I have read the program Terms of Use and Privacy Policy.")
+
+class UserGuideLinesScreen(Driver):
     acceptButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'I Accept'`]")
     logoutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Log Out'`]")
-    termsOfUse = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Terms of Use'`]")
-    privacyPolicy = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Privacy Policy'`]")
+    termsOfUseButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Terms of Use'`]")
+    privacyPolicyButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Privacy Policy'`]")
+
+    termsOfUseTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'TERMS OF USE'`]")
+    privacyPolicyTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'FCA US Privacy Policy'`]")
+    closeTermsOfUse = (AppiumBy.ACCESSIBILITY_ID, "icon close")
+    closePrivacyPolicy = (AppiumBy.IOS_CLASS_CHAIN, " ** / XCUIElementTypeStaticText[`name == 'Done'`]")
 
 
 class NavigationScreen(Driver):
@@ -50,17 +57,42 @@ class NavigationScreen(Driver):
     learnEssentialsTitle = (AppiumBy.ACCESSIBILITY_ID, "Learn the Essentials")
     learnEssentialsText = (AppiumBy.ACCESSIBILITY_ID, "Explore Off-Roading 101 to learn the basic safety principles and maneauvers of off-roading in your Jeep® brand vehicle.")
 
+    trailAndBadgesTitle = (AppiumBy.ACCESSIBILITY_ID, "Check Into Trails And Earn Badges")
+    openMapsFromMenuTitle = (AppiumBy.ACCESSIBILITY_ID, "Open Maps from the Bottom Menu")
+    openTrailTitle = (AppiumBy.ACCESSIBILITY_ID, "Open a Trail")
+    earnBadgeButtonTitle = (AppiumBy.ACCESSIBILITY_ID, "Tap the Earn Badge Button")
+    checkIntoTrailTitle = (AppiumBy.ACCESSIBILITY_ID, "Check Into the Trail")
     skipButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Skip'`]")
     letsGoButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Let's Go'`]")
     pageIndicatorDots = (AppiumBy.CLASS_NAME, "XCUIElementTypePageIndicator")
+    closePage = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
 
 class HomeScreen(Driver):
+    homeTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'HOME'`]")
     featuredTopNavBar = (AppiumBy.ACCESSIBILITY_ID, "FEATURED")
     imageFeaturedTrail = (AppiumBy.ID, "com.chrysler.JeepBOH:id/imageFeaturedTrailItem")
+    iconLocation = (AppiumBy.ACCESSIBILITY_ID, "icon_Check_In")
+    iconTrailDetails = (AppiumBy.XPATH, "(//XCUIElementTypeImage[@name='icon-chevron'])[1]")
+    trailDifficultyText = (AppiumBy.ACCESSIBILITY_ID, "TRAIL DIFFICULTY")
+    currentConditionsText = (AppiumBy.ACCESSIBILITY_ID, "CURRENT CONDITIONS")
+    trailForcastText = (AppiumBy.ACCESSIBILITY_ID, "TRAIL FORECAST")
+    daylightRemainingText = (AppiumBy.ACCESSIBILITY_ID, "DAYLIGHT REMAINING")
+    trailLeaderboardSection = (AppiumBy.ACCESSIBILITY_ID, "Trail Leaderboard")
+    viewLeaderboard = (AppiumBy.ACCESSIBILITY_ID, "View Leaderboard")
+
+    checkinTrailButton = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
+    featuredTrailRowContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailRowOneContainer")
+    featuredTrailWeatherContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailWeatherContainer")
+    homeButton = (AppiumBy.ACCESSIBILITY_ID, "icon burger announcement")
+    homeBSButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'icon burger announcement'`]")
+    
     homeBottomNavBar = (AppiumBy.XPATH, "(//android.widget.ImageView[@resource-id='android:id/icon'])[1]")
     checkinTrailButton = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
     featuredTrailRowContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailRowOneContainer")
     featuredTrailWeatherContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailWeatherContainer")
+
+class BottomNavBarScreen(Driver):
+    homeBottomBar = (AppiumBy.ACCESSIBILITY_ID, "Main Feature Home")
 
 class LoginScreen(Driver):
     logoBoH = (AppiumBy.ACCESSIBILITY_ID, "logo-boh-new")
@@ -77,3 +109,56 @@ class loginOktaScreen(Driver):
     loginButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Log In'`]")
     keyboardOn = (AppiumBy.ACCESSIBILITY_ID, "space")
     keyboardDone = (AppiumBy.ACCESSIBILITY_ID, "Done")
+
+class loginAsGuest(Driver):
+    continueAsGuestButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Continue As Guest'`][2]")
+    dontHaveProfileTitle = (AppiumBy.ACCESSIBILITY_ID, "Don't Have a Profile?")
+
+class ProfileScreen(Driver):
+    logoutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log Out'`]")
+
+class VehicleProfileScreen(Driver):
+    updateProfileButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Update Vehicle Profile'`]")
+    dismissProfileButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Dismiss'`]")
+    closeVehicleNotification = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
+
+class MenuScreen(Driver):
+    logoutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log Out'`]")
+    guestLogOutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log In Or Sign Up'`]")
+
+class LocationScreen(Driver):
+    sorryLocationMessage = (AppiumBy.ACCESSIBILITY_ID, "Sorry")
+    okLocationButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Ok'`]")
+    checkinLocationTitle = (AppiumBy.IOS_CLASS_CHAIN, "C**/XCUIElementTypeStaticText[`name == 'CHECK-IN'`]")
+    checkinButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Check-In'`]")
+    closeButton = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
+
+class TrailsDetailsScreen(Driver):
+    trailDetailsTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'TRAIL DETAILS'`]")
+    iconBackArrow = (AppiumBy.ACCESSIBILITY_ID, "icon backArrow")
+
+class LeaderboardScreen(Driver):
+    tabLeaderboardTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'LEADERBOARD'`]")
+    iconTrophy= (AppiumBy.ACCESSIBILITY_ID, "icon trophy circle")
+    trailsList = (AppiumBy.XPATH, "//XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeButton")
+    trailExplorer = (AppiumBy.ACCESSIBILITY_ID, "Trail Explorer")
+
+class TrailsMapScreen(Driver):
+    trailMapTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'MAP'`]")
+    trailsTopNavBar= (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'TRAILS'`]")
+    mapsBottomNavBar = (AppiumBy.ACCESSIBILITY_ID, "Main Feature Maps")
+    searchTextField = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeTextField[`value == 'Search by name or state'`]")
+    iconSortBy = (AppiumBy.ACCESSIBILITY_ID, "icon sort")
+    trailsList = (AppiumBy.XPATH, "//XCUIElementTypeTable/XCUIElementTypeCell'")
+    iconPinTrailsList = (AppiumBy.IOS_CLASS_CHAIN,"**/XCUIElementTypeImage[`name == 'iconPinTrailMin'`]")
+    typeMap = (AppiumBy.IOS_PREDICATE, "type == 'XCUIElementTypeMap'")
+
+class TrailsSortByScreen(Driver):
+    sorByTitle = (AppiumBy.ACCESSIBILITY_ID, "Sort By")
+    byAlphabetical = (AppiumBy.NAME, "Alphabetical")
+    byDifficulty = (AppiumBy.NAME, "Difficulty")
+    byMostPopular = (AppiumBy.NAME, "Most Popular")
+    byAverageUserRating = (AppiumBy.NAME, "Average User Rating")
+    byResetResults = (AppiumBy.NAME, "Reset Results")
+    closeButton = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
+
