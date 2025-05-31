@@ -11,16 +11,12 @@ class SplashScreen(Driver):
 class AlertsScreen(Driver):
     locationAlert = (AppiumBy.XPATH, "//*[contains(@text, 'Allow Badge of Honor to access this device’s location?')]")
     allowOnceButton = (AppiumBy.XPATH, "//*[contains(@text, 'While using the app')]")
-    #bohAuthAlert=  (AppiumBy.IOS_CLASS_CHAIN, "** / XCUIElementTypeStaticText[`name == '“BadgeOfHonor” Wants to Use “auth0.com” to Sign In'`]")
-    #authContinueButton = (AppiumBy.ACCESSIBILITY_ID, "Continue")
     bohSendNotificationAlert = (AppiumBy.XPATH, "//*[contains(@text, 'Allow Badge of Honor to send you notifications?')]")
     allowButton = (AppiumBy.XPATH, "//*[contains(@text, 'Allow')]")
+    wantToLogOut = (AppiumBy.ID, "com.chrysler.JeepBOH:id/alertTitle")
+    yesLogOutButton = (AppiumBy.XPATH, '//*[contains(@text, "YES")]')
 
 class HeadsUpScreen(Driver):
-    #headsUpTitle = (AppiumBy.ACCESSIBILITY_ID, "Heads Up")
-    #headsUpText = (AppiumBy.ACCESSIBILITY_ID, "Some services are down on our end and functionality might be limited. "
-                                              #"You can continue to explore Badge of Honor but may experience bumps along the way.")
-    #continueButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'OK'`]")
     warningTitle = (AppiumBy.XPATH, '//*[contains(@text, "Warning Before We Begin")]')
     warningText = (AppiumBy.XPATH, "//*[contains(@text, 'Rock crawling and off-road driving are inherently dangerous activities. "
                                    "By experiencing the Badge of Honor program, users assume the risk of off-road driving. "
@@ -36,10 +32,16 @@ class HeadsUpScreen(Driver):
                                           'pornographic, invasive of another’s privacy, or racially, ethnically, unlawful, or otherwise unlawful or objectionable.")]')
 
     headsUpGuidelines2 = (AppiumBy.XPATH, '//*[contains(@text, "I have read the program Terms of Use and Privacy Policy.")]')
+
+class UserGuideLinesScreen(Driver):
     acceptButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonUgcPrimary")
     logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textUgcLogOutButton")
-    termsOfUse = (AppiumBy.XPATH, '//*[contains(@text, "Terms of Use")]')
-    privacyPolicy = (AppiumBy.XPATH, '//*[contains(@text, "Privacy Policy")]')
+    termsOfUseButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textUgcTermsButton")
+    privacyPolicyButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textUgcPrivacyButton")
+
+    termsOfUseTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentToolbarTitle")
+    privacyPolicyTitle = (AppiumBy.XPATH, "//android.widget.TextView[@text='FCA US Privacy Policy']")
+    closeTermsOfUse = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerContentClose")
 
 class NavigationScreen(Driver):
     exploreTrailsTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Explore Trails')]")
@@ -52,23 +54,36 @@ class NavigationScreen(Driver):
     learnEssentialsText = (AppiumBy.XPATH, "//*[contains(@text, 'Explore Off-Roading 101 to learn the basic safety principles and maneuvers of off-roading in your Jeep® brand vehicle.)]")
     skipButton = (AppiumBy.XPATH, "//*[contains(@text, 'Skip')]")
     letsGoButton = (AppiumBy.XPATH, "//*[ends-with(@resource-id, 'com.chrysler.JeepBOH:id/buttonOnboardingEssentialsGo')]") # Let’s Go
-    #pageIndicatorDots = (AppiumBy.CLASS_NAME, "XCUIElementTypePageIndicator")
 
 class HomeScreen(Driver):
+    homeTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textToolbarMainTitle")
     featuredTopNavBar = (AppiumBy.ACCESSIBILITY_ID, "FEATURED")
     imageFeaturedTrail = (AppiumBy.ID, "com.chrysler.JeepBOH:id/imageFeaturedTrailItem")
+
+    iconLocation = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
+    iconTrailDetails = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailName")
+    trailDifficultyText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailDifficultyHeaderButton")
+    currentConditionsText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailCurrentConditionsHeader")
+    trailForcastText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailForecastHeader")
+    daylightRemainingText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailDaylightHeader")
+    trailLeaderboardSection = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailLeaderboardHeader")
+    viewLeaderboard = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonFeaturedTrailLeaderboardViewAll")
+    
     homeBottomNavBar = (AppiumBy.XPATH, "(//android.widget.ImageView[@resource-id='android:id/icon'])[1]")
     checkinTrailButton = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
     featuredTrailRowContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailRowOneContainer")
     featuredTrailWeatherContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailWeatherContainer")
+    homeButton = (AppiumBy.ACCESSIBILITY_ID, "menu")
+
+class BottomNavBarScreen(Driver):
+    homeBottomBar = (AppiumBy.XPATH, "(//android.widget.ImageView[@resource-id='android:id/icon'])[1]")
 
 class LoginScreen(Driver):
-    #jeepBOHImage = (AppiumBy.XPATH, "//*[@resource-id='com.chrysler.JeepBOH:id/layoutLogInContent']/android.widget.ImageView[2]")
     logoBoH = (AppiumBy.XPATH, "//*/android.widget.ImageView[2]")
-    loginSignUpButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLoginLogin") #com.chrysler.JeepBOH:id/buttonLoginLogin
-    continueAsGuessButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLoginSkip")
+    loginSignUpButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLoginLogin") 
     alertAllowLocation = (AppiumBy.ID, "com.android.permissioncontroller:id/permission_message")
     whileUsingAppButton = (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    continueAsGuessButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLoginSkip")
 
 class loginOktaScreen(Driver):
     urlField = (AppiumBy.ID, "com.android.chrome:id/url_bar")
@@ -82,3 +97,41 @@ class loginOktaScreen(Driver):
     password_BS = (AppiumBy.XPATH, "//*/android.view.View[4]/android.view.View/android.view.View/android.widget.EditText")
     loginButton_BS = (AppiumBy.XPATH, "//android.widget.Button[@text='Log In']")
     loginTab_BS =  (AppiumBy.XPATH, "//android.view.View[@text='Log In']")
+
+class loginAsGuest(Driver):
+    continueAsGuestButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonSkipLoginSkip")
+    dontHaveProfileTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/no_profile_header")
+
+class MenuScreen(Driver):
+    logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
+    guestLogOutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerGuestSignIn")
+
+class ProfileScreen(Driver):
+    logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
+
+class VehicleProfileScreen(Driver):
+    updateProfileButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonEvUpdate")
+    dismissProfileButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonEvDismiss")
+    closeVehicleNotification = (AppiumBy.ID, "Close notification")
+
+class LocationScreen(Driver):
+    sorryLocationMessage = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textGeneralFragmentTitle")
+    okLocationButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonGeneralFragmentPrimary")
+    checkinLocationTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textToolbarDialogTitle")
+    checkinButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_button")
+    closeButton = (AppiumBy.ACCESSIBILITY_ID, "Close")
+
+class TrailsDetailsScreen(Driver):
+    trailDetailsTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textToolbarMainTitle")
+    iconBackArrow = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonToolbarMainLeft")
+
+    iconBackBSArrow = (AppiumBy.XPATH, "//android.widget.ImageButton[@resource-id='com.chrysler.JeepBOH:id/buttonToolbarMainLeft']")
+
+
+class LeaderboardScreen(Driver):
+    tabLeaderboardTitle = (AppiumBy.ACCESSIBILITY_ID, "LEADERBOARD")
+    iconTrophy= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLeaderboardMyRank")
+    trailsList = (AppiumBy.XPATH, "(//android.view.ViewGroup[@resource-id='com.chrysler.JeepBOH:id/layoutLeaderboardItemContent'])")
+    trailExplorer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textLeaderboardTrailFilter")
+    
+
