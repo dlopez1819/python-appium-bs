@@ -39,12 +39,6 @@ class BrowserstackObjects(Driver):
             BoH.click(self, self.locators.loginOktaScreen.keyboardDone)
             self.driver.execute_script('mobile: scroll', {'direction': 'down'})
 
-     def swipe_bs_page(self):
-        BrowserstackObjects.__init__(self)
-        if self.apps == 'ios':
-            BoH.click(self, self.locators.loginOktaScreen.keyboardDone)
-            self.driver.execute_script('mobile: scroll', {'direction': 'down'})
-
     def scroll_bs_down(self):
         BrowserstackObjects.__init__(self)
         if self.apps == 'ios':
