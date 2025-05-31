@@ -1,8 +1,10 @@
 import pytest
 from src.common.shared_workflow import SharedWorkflow
 from src.helpers.appium_driver import Driver
+from src.pages.home_page import HomePage
 from src.pages.login_page import LoginPage
 from src.pages.headsup_page import HeadsUpPage
+from src.pages.user_guidelines_page import UserGuideLinesPage
 
 
 class Account:
@@ -10,7 +12,6 @@ class Account:
         # BoHCredentials pre-prod user
         ['diego11.lopez@nttdata.com', 'Password1']
     ]
-    BoHEnvironments = ('dev', 'test', 'preprod', 'prod')
 
 class TestBoHLogin(Driver):
 
@@ -23,10 +24,26 @@ class TestBoHLogin(Driver):
 
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_boh_okta_login(self, test_email, test_pwd):
+    # TEST CASES: BOH19-TC-666, BOH19-TC-574, BOH19-TC-2572, BOH19-TC-2569, BOH19-TC-2540, BOH19-TC-2568
+    def test_boh_okta_login_BOH19_TC666(self, test_email, test_pwd):
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.oktaUserLogin(self, test_email, test_pwd)
         else:
-            HeadsUpPage.verifyUserContentGuideLines(self)
-        HeadsUpPage.verifyUserContentGuideLines(self)
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        HeadsUpPage.checkTrailAndBadges(self, flagLogin= True)
+        #MenuPage.logout(self)
+       # LoginPage.assertIfLoginPage(self)
 
+    @pytest.mark.sanity
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC-664
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.guestUserLogin(self)
+        else:
+            HomePage.verifyHomePage(self)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        #MenuPage.guestLogOut(self)
+        #LoginPage.assertIfLoginPage(self)
