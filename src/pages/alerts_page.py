@@ -24,3 +24,8 @@ class AlertsPage(Driver):
         if BoH.is_exist(self, self.locators.AlertsScreen.bohAuthAlert, expected=True):
             BoH.click(self,self.locators. AlertsScreen.authContinueButton)
         BoH.wait_until_disappear(self, self.locators.AlertsScreen.bohAuthAlert, 5)
+
+    def wantToLogOutAlert(self):
+        AlertsPage.__init__(self)
+        if BoH.is_exist(self, self.locators.AlertsScreen.yesLogOutButton, expected=True):
+            BoH.click(self, self.locators.AlertsScreen.yesLogOutButton)
