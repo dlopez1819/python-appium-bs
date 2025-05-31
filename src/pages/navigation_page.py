@@ -21,6 +21,19 @@ class NavigationPage(Driver):
         NavigationPage.__init__(self)
         pages =  {0: self.locators.NavigationScreen.exploreTrailsTitle, 1: self.locators.NavigationScreen.uploadPhotosTitle,
                     2: self.locators.NavigationScreen.earnPointBadgesTitle, 3: self.locators.NavigationScreen.learnEssentialsTitle}
+        NavigationPage.navigatePages(self, pages)
+
+    def checkTrailsAndBadgesNav(self):
+       NavigationPage.__init__(self)
+       pages = {0: self.locators.NavigationScreen.trailAndBadgesTitle,
+                1: self.locators.NavigationScreen.openMapsFromMenuTitle,
+                2: self.locators.NavigationScreen.openTrailTitle,
+                3: self.locators.NavigationScreen.earnBadgeButtonTitle,
+                4: self.locators.NavigationScreen.checkIntoTrailTitle}
+       NavigationPage.navigatePages(self, pages)
+
+    def navigatePages(self, pages):
+        NavigationPage.__init__(self)
         for index, element in pages.items():
             BoH.is_exist(self, element, expected=True)
             if self.apps == 'ios':
@@ -34,6 +47,3 @@ class NavigationPage(Driver):
             BoH.click(self, self.locators.NavigationScreen.letsGoButton)
         if self.appiumserver == "browserstack":
             AlertsPage.allowLocationAlert(self)
-
-    def checkTrailsAndBadgesNav(self):
-       NavigationPage.__init__(self)
