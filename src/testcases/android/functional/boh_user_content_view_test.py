@@ -22,7 +22,7 @@ class TestBoHUserContent(Driver):
     def teardown_method(self):
         super().tearDown()
 
-    @pytest.mark.sanity
+    @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_user_content_guidelines_BOH19_TC2540(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC-2540
