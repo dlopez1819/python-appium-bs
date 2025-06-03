@@ -27,6 +27,7 @@ class TestBoHHome(Driver):
     def teardown_method(self):
         super().tearDown()
 
+    @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_home_featured_BOH19_TC651(self, test_email, test_pwd):
