@@ -125,7 +125,7 @@ class Driver():
         return ""
 
     def screenshot_on_failure(self, test_name):
-        if appiumserver == 'local':
+        if appiumserver == 'browserstack':
             now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
             if not os.path.exists('./report/screenshots'):
                 os.makedirs('./report/screenshots')
