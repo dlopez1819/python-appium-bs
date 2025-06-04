@@ -76,61 +76,6 @@ class Driver():
             #remoteURL = 'https://diegolopez_JMV6tn:DsRBxpbCyFu1ZhLF4w3q@hub-cloud.browserstack.com/wd/hub' #"https://hub.browserstack.com/wd/hub"
             session_capabilities = capabilities_options
             Driver.driver = webdriver.Remote(command_executor=url, options=session_capabilities)
-            pass
-       # Driver.driver = webdriver.Remote(url, desired_caps)
-
-    def setUp2(self):
-
-        global appiumserver
-        appiumserver = self.appiumserver
-
-        global capabilities, session_capabilities
-        self.logger.info("Configuring desired capabilities")
-
-        if  self.appiumserver == "local":
-            capabilities = dict(CONFIG[appiumserver][self.apps])
-        else:
-            capabilities = CONFIG_BS
-
-        if self.appiumserver == "local":
-            capabilities['device'] = self.device
-            capabilities['os_version'] = self.os
-            capabilities['name'] = os.environ.get('PYTEST_CURRENT_TEST').split(':')[-1].split(' ')[0]
-            if self.apps == "android":
-                if self.env == "preprod":
-                    # TO DO
-                    pass
-                    #capabilities['app'] = '/Users/nttdata/Documents/pytestBoH/boh_mobile_appium/apps/app-boh.apk',
-
-        self.logger.info(self.apps)
-        self.logger.info("Initiating Appium driver")
-
-        # Query the Browserstack current parallel running request
-        """"""""""""""""
-        if appiumserver == 'browserstack':
-            response = requests.get(self.browserstack_requestURL('plan.json'))
-            current_running_parallel = response.json()['parallel_sessions_running']
-            max_running_parallel = response.json()['parallel_sessions_max_allowed']
-            while current_running_parallel >= max_running_parallel:
-                time.sleep(30)
-                response = requests.get(self.browserstack_requestURL('plan.json'))
-                current_running_parallel = response.json()['parallel_sessions_running']
-                max_running_parallel = response.json()['parallel_sessions_max_allowed']
-        """""
-        appium_service = AppiumService()
-        if self.apps == "android":
-            capabilities_options = UiAutomator2Options().load_capabilities(capabilities)
-        else:
-            capabilities_options = XCUITestOptions().load_capabilities(capabilities)
-
-        if self.appiumserver == "local":
-            url = CONFIG[appiumserver]['appiumserverlocation']
-            Driver.driver = webdriver.Remote(command_executor=url, options=capabilities_options)
-        else:
-            remoteURL = 'https://' + CONFIG['browserstack_user'] + ':' + CONFIG['browserstack_accesskey']+ '@hub-cloud.browserstack.com/wd/hub'
-            #remoteURL = 'https://diegolopez_JMV6tn:DsRBxpbCyFu1ZhLF4w3q@hub-cloud.browserstack.com/wd/hub' #"https://hub.browserstack.com/wd/hub"
-            session_capabilities = capabilities_options
-            Driver.driver = webdriver.Remote(command_executor=remoteURL, options=session_capabilities)
 
     def tearDown(self):
         if Driver.driver is not None:
