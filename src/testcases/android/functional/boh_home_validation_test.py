@@ -40,7 +40,7 @@ class TestBoHHome(Driver):
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         HeadsUpPage.verifyVehicleProfile(self)
         HomePage.homePage(self)
-        HomePage.homeLocation(self)
+        HomePage.homeCheckIn(self)
         SharedWorkflow.scrollDown(self, self.width - 100, (self.height / 2 + self.offset), self.width - 100, self.offset) # scroll half page
         HomePage.homeViewLeaderboard(self)
         HomePage.homeFeaturedTab(self)
