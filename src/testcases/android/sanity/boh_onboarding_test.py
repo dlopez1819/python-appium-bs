@@ -25,6 +25,17 @@ class TestBoHOnBoarding(Driver):
     @pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    # TEST CASES: BOH19-TC-2568. App On-Boarding (Tutorial)
+    def test_boh_onboarding_tutorial_BOH19_TC2568(self, test_email, test_pwd):
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.onboardingLoginTutorial(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        LoginPage.assertIfLoginPage(self)
+
+    @pytest.mark.regression
+    @pytest.mark.sanity
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-575. App On-Boarding - Skip
     def test_boh_onboarding_skip_BOH19_TC575(self, test_email, test_pwd):
         if LoginPage.isNormalUserLoggedIn(self) is False:
