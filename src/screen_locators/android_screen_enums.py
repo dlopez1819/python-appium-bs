@@ -133,5 +133,16 @@ class LeaderboardScreen(Driver):
     iconTrophy= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLeaderboardMyRank")
     trailsList = (AppiumBy.XPATH, "(//android.view.ViewGroup[@resource-id='com.chrysler.JeepBOH:id/layoutLeaderboardItemContent'])")
     trailExplorer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textLeaderboardTrailFilter")
+
+class CheckInScreen(Driver):
+    subHeaderText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_subheader")
+    headerText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_header")
+    checkInBodyTextView = (AppiumBy.XPATH, "//*[contains(@text, 'Checking in to a trail displays on your profile so other off-roaders can follow your adventures. "
+                                  "After you check in, you can also request a hard badge, if you haven’t already.')]")
+    checkInButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_button")
+    checkInTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textToolbarDialogTitle")
+    closeButton = (AppiumBy.ACCESSIBILITY_ID, "Close")
+    sorryCheckInMessage = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textGeneralFragmentTitle")
+    okCheckInButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonGeneralFragmentPrimary")
     
 
