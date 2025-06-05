@@ -29,8 +29,8 @@ class TestBoHHome(Driver):
     @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_boh_home_featured_BOH19_TC651(self, test_email, test_pwd):
-        # TEST CASES: BOH19-TC-651, BOH19-TC-2522, BOH19-TC-2518, BOH21-TC-2577
+    def test_boh_guest_featured_trail_enhancement_BOH19_TC2562(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC-651, BOH19-TC-2522, BOH19-TC-2518, BOH21-TC-2577, BOH19_TC2562
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.oktaUserLoginSkip(self, test_email, test_pwd)
         else:
