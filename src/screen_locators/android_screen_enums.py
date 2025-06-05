@@ -105,6 +105,7 @@ class loginAsGuest(Driver):
 class MenuScreen(Driver):
     logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
     guestLogOutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerGuestSignIn")
+    termsOfUseButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerTermsOfUse")
 
 class ProfileScreen(Driver):
     logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
@@ -144,5 +145,10 @@ class CheckInScreen(Driver):
     closeButton = (AppiumBy.ACCESSIBILITY_ID, "Close")
     sorryCheckInMessage = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textGeneralFragmentTitle")
     okCheckInButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonGeneralFragmentPrimary")
+
+class TermsOfUseScreen(Driver):
+    termOfUseTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentToolbarTitle")
+    closeButton= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerContentClose")
+    contentBodyText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentBody")
     
 
