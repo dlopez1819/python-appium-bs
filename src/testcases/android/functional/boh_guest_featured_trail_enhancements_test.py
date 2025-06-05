@@ -25,7 +25,8 @@ class TestBoHHome(Driver):
 
     def teardown_method(self):
         super().tearDown()
-
+        
+    @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_guest_featured_trail_enhancements_BOH19_TC2563(self, test_email, test_pwd):
