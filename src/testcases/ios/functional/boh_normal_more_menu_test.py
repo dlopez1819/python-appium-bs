@@ -32,7 +32,6 @@ class TestBoHNormalMoreMenu(Driver):
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_normal_more_menu_terms_of_use_BOH19_TC536(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC-536
-        self.locators = BoH.get_src_screen_enums(self)
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.oktaUserLoginSkip(self, test_email, test_pwd)
         else:
