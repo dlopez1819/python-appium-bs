@@ -24,5 +24,5 @@ browserstackLocal: true
 browserStackLocalOptions:
     -use-system-installed-ca: true
 buildName: browserstack-build-1
-projectName: Default Project
+projectName: BoH_Automation
 autoAcceptAlerts: True
