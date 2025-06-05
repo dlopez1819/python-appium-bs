@@ -162,3 +162,14 @@ class TrailsSortByScreen(Driver):
     byResetResults = (AppiumBy.NAME, "Reset Results")
     closeButton = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
 
+class CheckInScreen(Driver):
+    #subHeaderText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_subheader")
+    #headerText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_header")
+    #checkInBodyTextView = (AppiumBy.XPATH, "//*[contains(@text, 'Checking in to a trail displays on your profile so other off-roaders can follow your adventures. "
+    #                              "After you check in, you can also request a hard badge, if you haven’t already.')]")
+    checkInButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Check-In'`]")
+    checkInTitle = (AppiumBy.IOS_CLASS_CHAIN, "C**/XCUIElementTypeStaticText[`name == 'CHECK-IN'`]")
+    closeButton = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
+    sorryCheckInMessage = (AppiumBy.ACCESSIBILITY_ID, "Sorry")
+    okCheckInButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Ok'`]")
+
