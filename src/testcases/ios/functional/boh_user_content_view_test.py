@@ -11,7 +11,7 @@ class Account:
         ['diego11.lopez@nttdata.com', 'Password1']
     ]
 
-class TestBoHUserContent(Driver):
+class TestBoHUserContentView(Driver):
     global flagLogin #userLogged
 
     def setUp(self):
