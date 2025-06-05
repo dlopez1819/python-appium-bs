@@ -23,7 +23,7 @@ class HomePage(Driver):
         BoH.wait_until_appear(self, self.locators.HomeScreen.homeTitle, 5)
         BoH.is_exist(self, self.locators.HomeScreen.featuredTopNavBar, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.imageFeaturedTrail, expected=True)
-        BoH.is_exist(self, self.locators.HomeScreen.iconLocation, expected=True)
+        BoH.is_exist(self, self.locators.HomeScreen.iconCheckIn, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.iconTrailDetails, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.trailDifficultyText, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.currentConditionsText, expected=True)
@@ -42,12 +42,12 @@ class HomePage(Driver):
         if BoH.is_exist(self, self.locators.HomeScreen.featuredTopNavBar, expected=True):
             BoH.click(self, self.locators.HomeScreen.featuredTopNavBar)
 
-    def homeLocation(self):
+    def homeCheckIn(self):
         HomePage.__init__(self)
-        if BoH.is_exist(self, self.locators.HomeScreen.iconLocation, expected=True):
-            BoH.click(self, self.locators.HomeScreen.iconLocation)
-            BoH.wait_until_disappear(self, self.locators.HomeScreen.iconLocation, 3)
-            LocationPage.verifyLocationServices(self)
+        if BoH.is_exist(self, self.locators.HomeScreen.iconCheckIn, expected=True):
+            BoH.click(self, self.locators.HomeScreen.iconCheckIn)
+            BoH.wait_until_disappear(self, self.locators.HomeScreen.iconCheckIn, 3)
+            CheckInPage.locationServices(self)
         BoH.wait_until_appear(self, self.locators.HomeScreen.homeTitle, 5)
 
     def homeTrailDetails(self):
