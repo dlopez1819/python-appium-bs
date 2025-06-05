@@ -40,7 +40,7 @@ class TestBoHHome(Driver):
         HeadsUpPage.verifyVehicleProfile(self)
         HeadsUpPage.checkTrailAndBadges(self, flagLogin= False)
         HomePage.homePage(self)
-        HomePage.homeLocation(self)
+        HomePage.homeCheckIn(self)
         HomePage.homeTrailDetails(self)
         SharedWorkflow.scrollDown(self, self.width, (self.height / 2 + self.offset), self.width, (self.height / 2 - self.offset)) # scroll half page
         HomePage.homeViewLeaderboard(self)
