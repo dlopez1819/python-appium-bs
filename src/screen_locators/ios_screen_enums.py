@@ -125,6 +125,7 @@ class VehicleProfileScreen(Driver):
 class MenuScreen(Driver):
     logoutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log Out'`]")
     guestLogOutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log In Or Sign Up'`]")
+    termsOfUseButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Terms of Use'`]")
 
 class LocationScreen(Driver):
     sorryLocationMessage = (AppiumBy.ACCESSIBILITY_ID, "Sorry")
@@ -172,4 +173,9 @@ class CheckInScreen(Driver):
     closeButton = (AppiumBy.ACCESSIBILITY_ID, "icon close24")
     sorryCheckInMessage = (AppiumBy.ACCESSIBILITY_ID, "Sorry")
     okCheckInButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Ok'`]")
+
+class TermsOfUseScreen(Driver):
+    termOfUseTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'TERMS OF USE'`]")
+    closeButton= (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'icon close'`]")
+    contentBodyText = (AppiumBy.CLASS_NAME, "XCUIElementTypeTextView")
 
