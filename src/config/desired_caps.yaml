@@ -50,7 +50,7 @@ browserstack:
     platformName: 'ios'
     platformVersion: '17'
     deviceName: 'iPhone 15 Pro'
-    buildIdentifier: 'bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595'
+    buildIdentifier: 'bs://e0ffbb416f9cd9bb2235aecd0b81c2e4810ba74b'
     parallelsPerPlatform: 1
     browserstackLocal: true
     browserStackLocalOptions:
