@@ -44,7 +44,7 @@ browserstack:
   ios:
     userName: 'diegolopez_JMV6tn'
     accessKey: 'DsRBxpbCyFu1ZhLF4w3q'
-    app: 'bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595'
+    app: 'bs://e0ffbb416f9cd9bb2235aecd0b81c2e4810ba74b'
     framework: 'pytest'
     testObservability: 'true'
     platformName: 'ios'
