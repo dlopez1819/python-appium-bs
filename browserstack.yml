@@ -3,7 +3,7 @@
 # =============================
 userName: diegolopez_JMV6tn
 accessKey: DsRBxpbCyFu1ZhLF4w3q
-app: bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595
+app: bs://e0ffbb416f9cd9bb2235aecd0b81c2e4810ba74b
 framework: pytest
 platformName: ios
 deviceName: iPhone 15 Pro Max
@@ -18,7 +18,7 @@ platforms:
   - platformName: ios
     deviceName: iPhone 16
     platformVersion: 18
-buildIdentifier:  bs://e7a66ffe672bfa1a8c5a6ebb09016814cde7e595
+buildIdentifier:  bs://e0ffbb416f9cd9bb2235aecd0b81c2e4810ba74b
 parallelsPerPlatform: 1
 browserstackLocal: true
 browserStackLocalOptions:
