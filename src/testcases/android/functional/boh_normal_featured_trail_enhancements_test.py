@@ -15,7 +15,7 @@ class Account:
         ['diego11.lopez@nttdata.com', 'Password1']
     ]
 
-class TestBoHHome(Driver):
+class TestBoHNormalFeaturedTrail(Driver):
     global flagLogin #userLogged
 
     def setUp(self):
