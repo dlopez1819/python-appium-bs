@@ -29,3 +29,10 @@ class MenuPage(Driver):
         BoH.wait_until_appear(self, self.locators.MenuScreen.guestLogOutButton)
         BoH.click(self, self.locators.MenuScreen.guestLogOutButton)
         BoH.wait_until_disappear(self, self.locators.MenuScreen.guestLogOutButton, 5)
+
+    def termsOfUse(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.termsOfUseButton)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.termsOfUseButton, 5)
+
