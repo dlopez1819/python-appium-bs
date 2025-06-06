@@ -32,10 +32,10 @@ browserstack:
     app: 'bs://01f61500141ed70773b3284a2201d6eaf29ccd0d'
     device: 'Samsung Galaxy S22'
     os_version: '12.0'
-    project: 'Appium Automation Android'
+    project: 'BoH_Automation'
     build: 'browserstack-build-1'
     name: 'first_test'
-    browserstack.idleTimeout: 300
+    browserstack.idleTimeout: 1000
     platformName: 'Android'
     platformVersion: '12'
     deviceName: 'Samsung Galaxy S22'
