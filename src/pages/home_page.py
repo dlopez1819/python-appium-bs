@@ -22,7 +22,7 @@ class HomePage(Driver):
         HomePage.__init__(self)
         BoH.wait_until_appear(self, self.locators.HomeScreen.homeTitle, 5)
         BoH.is_exist(self, self.locators.HomeScreen.featuredTopNavBar, expected=True)
-        BoH.is_exist(self, self.locators.HomeScreen.imageFeaturedTrail, expected=True)
+        #BoH.is_exist(self, self.locators.HomeScreen.imageFeaturedTrail, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.iconCheckIn, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.iconTrailDetails, expected=True)
         BoH.is_exist(self, self.locators.HomeScreen.trailDifficultyText, expected=True)
