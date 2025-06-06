@@ -60,7 +60,7 @@ class HomeScreen(Driver):
     featuredTopNavBar = (AppiumBy.ACCESSIBILITY_ID, "FEATURED")
     imageFeaturedTrail = (AppiumBy.ID, "com.chrysler.JeepBOH:id/imageFeaturedTrailItem")
 
-    iconLocation = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
+    iconCheckIn = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
     iconTrailDetails = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailName")
     trailDifficultyText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailDifficultyHeaderButton")
     currentConditionsText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textFeaturedTrailCurrentConditionsHeader")
