@@ -12,6 +12,10 @@ class HomePage(Driver):
         self.offset = 30
         self.locators = BoH.get_src_screen_enums(self)
 
+    def assertIfHomePage(self):
+        HomePage.__init__(self)
+        assert (BoH.is_exist(self, self.locators.HomeScreen.homeTitle)) is True, "Login Page is not displayed"
+
     def homePage(self):
         HomePage.__init__(self)
         BoH.click(self, self.locators.BottomNavBarScreen.homeBottomBar)
