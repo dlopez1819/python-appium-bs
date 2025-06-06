@@ -71,7 +71,7 @@ class HomeScreen(Driver):
     homeTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'HOME'`]")
     featuredTopNavBar = (AppiumBy.ACCESSIBILITY_ID, "FEATURED")
     imageFeaturedTrail = (AppiumBy.ID, "com.chrysler.JeepBOH:id/imageFeaturedTrailItem")
-    iconLocation = (AppiumBy.ACCESSIBILITY_ID, "icon_Check_In")
+    iconCheckIn = (AppiumBy.ACCESSIBILITY_ID, "icon_Check_In")
     iconTrailDetails = (AppiumBy.XPATH, "(//XCUIElementTypeImage[@name='icon-chevron'])[1]")
     trailDifficultyText = (AppiumBy.ACCESSIBILITY_ID, "TRAIL DIFFICULTY")
     currentConditionsText = (AppiumBy.ACCESSIBILITY_ID, "CURRENT CONDITIONS")
@@ -81,8 +81,6 @@ class HomeScreen(Driver):
     viewLeaderboard = (AppiumBy.ACCESSIBILITY_ID, "View Leaderboard")
 
     checkinTrailButton = (AppiumBy.ACCESSIBILITY_ID, "Check in to this trail")
-    featuredTrailRowContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailRowOneContainer")
-    featuredTrailWeatherContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailWeatherContainer")
     homeButton = (AppiumBy.ACCESSIBILITY_ID, "icon burger announcement")
     homeBSButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'icon burger announcement'`]")
     
