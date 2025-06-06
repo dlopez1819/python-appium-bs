@@ -26,7 +26,7 @@ class TestBoHNormalMoreMenu(Driver):
     def teardown_method(self):
         super().tearDown()
 
-    @pytest.mark.smoke
+    @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_normal_more_menu_terms_of_use_BOH19_TC536(self, test_email, test_pwd):
