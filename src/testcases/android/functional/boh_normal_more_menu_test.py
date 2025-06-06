@@ -37,7 +37,7 @@ class TestBoHNormalMoreMenu(Driver):
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         HeadsUpPage.verifyVehicleProfile(self)
-        HomePage.assertIfHomenPage(self)
+        HomePage.assertIfHomePage(self)
         MenuPage.termsOfUse(self)
         TermsOfUsePage.verifyTermsOfUsePage(self)
         #MenuPage.logout(self)
