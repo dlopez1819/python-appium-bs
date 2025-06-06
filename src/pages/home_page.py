@@ -48,6 +48,7 @@ class HomePage(Driver):
 
     def homeCheckIn(self):
         HomePage.__init__(self)
+        BoH.wait_until_appear(self, self.locators.HomeScreen.iconCheckIn, 5)
         if BoH.is_exist(self, self.locators.HomeScreen.iconCheckIn, expected=True):
             BoH.click(self, self.locators.HomeScreen.iconCheckIn)
             BoH.wait_until_disappear(self, self.locators.HomeScreen.iconCheckIn, 3)
@@ -56,6 +57,7 @@ class HomePage(Driver):
 
     def homeTrailDetails(self):
         HomePage.__init__(self)
+        BoH.wait_until_appear(self, self.locators.HomeScreen.iconTrailDetails, 5)
         if BoH.is_exist(self, self.locators.HomeScreen.iconTrailDetails, expected=True):
             BoH.click(self, self.locators.HomeScreen.iconTrailDetails)
             BoH.wait_until_disappear(self, self.locators.HomeScreen.iconTrailDetails, 3)
@@ -64,7 +66,7 @@ class HomePage(Driver):
 
     def homeViewLeaderboard(self):
         HomePage.__init__(self)
-        BoH.wait_until_appear(self, self.locators.HomeScreen.trailLeaderboardSection, 2)
+        BoH.wait_until_appear(self, self.locators.HomeScreen.trailLeaderboardSection, 5)
         if BoH.is_exist(self, self.locators.HomeScreen.viewLeaderboard, expected=True):
             BoH.click(self, self.locators.HomeScreen.viewLeaderboard)
             BoH.wait_until_disappear(self, self.locators.HomeScreen.viewLeaderboard, 3)
