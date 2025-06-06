@@ -19,7 +19,7 @@ platforms:
     deviceName: iPhone 16
     platformVersion: 18
 buildIdentifier:  bs://e0ffbb416f9cd9bb2235aecd0b81c2e4810ba74b
-parallelsPerPlatform: 1
+parallelsPerPlatform: 5
 browserstackLocal: true
 browserStackLocalOptions:
     -use-system-installed-ca: true
