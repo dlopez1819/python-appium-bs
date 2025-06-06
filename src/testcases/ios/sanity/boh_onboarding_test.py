@@ -20,7 +20,7 @@ class TestBoHOnBoarding(Driver):
     def teardown_method(self):
         super().tearDown()
 
-    @pytest.mark.regression
+    #@pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-2568 : App On-Boarding (Tutorial)
@@ -31,7 +31,7 @@ class TestBoHOnBoarding(Driver):
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         LoginPage.assertIfLoginPage(self)
 
-    @pytest.mark.regression
+    #@pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES:  BOH19-TC-575. BOH19-TC-574 : App On-Boarding - Skip
