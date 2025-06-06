@@ -21,7 +21,7 @@ class TestBoHUserContentView(Driver):
     def teardown_method(self):
         super().tearDown()
 
-    @pytest.mark.regression
+    #@pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_user_content_guidelines_BOH19_TC2540(self, test_email, test_pwd):
