@@ -16,5 +16,5 @@ class TrailDetailsPage(Driver):
             BoH.click(self, self.locators.TrailsDetailsScreen.iconBackArrow)
             BoH.wait_until_disappear(self, self.locators.TrailsDetailsScreen.iconBackArrow, 5)
         else:
-            pass
+            BoH.click(self, self.locators.BottomNavBarScreen.homeBottomBar)
   
