@@ -63,8 +63,8 @@ class HomePage(Driver):
         BoH.click(self, self.locators.HomeScreen.iconTrailDetails)
         BoH.tap_by_coordinates(self, 130, 480)
         BoH.wait_until_disappear(self, self.locators.HomeScreen.iconTrailDetails, 3)
-            if self.appiumserver == 'local':
-                TrailDetailsPage.verifyTrailDetailsPage(self)
+        if self.appiumserver == 'local':
+            TrailDetailsPage.verifyTrailDetailsPage(self)
 
     def homeViewLeaderboard(self):
         HomePage.__init__(self)
