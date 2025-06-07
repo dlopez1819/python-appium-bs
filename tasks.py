@@ -24,7 +24,7 @@ def test(c, env='preprod', lang='en', app='android', deviceOS='emulator', marker
 
 def run_automation_test(c, m, app, env, appiumServer, device, operatingsystem):
     #runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{operatingsystem}' --reruns 1 --junitxml='./report/xml/{m}_{device}_{operatingsystem}.xml' --html-report='./report/{m}_{device}_{operatingsystem}.html'&"
-    runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{os}' --reruns 1  --html-report='./report/{m}_{device}_{os}.html'&"
+    runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{os}' --reruns 0  --html-report='./report/{m}_{device}_{os}.html'&"
 
     if appiumServer == "browserstack": #For browserstack enable parallel running to 5
         if os.environ.get('browserstack_build_id') is not None:
