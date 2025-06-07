@@ -3,6 +3,7 @@ from src.pages.leaderboard_page import LeaderBoardPage
 from src.pages.location_page import LocationPage
 from src.helpers.appium_driver import Driver
 from src.pages.trail_details_page import TrailDetailsPage
+from src.pages.checkin_page import CheckInPage
 
 
 class HomePage(Driver):
@@ -50,10 +51,10 @@ class HomePage(Driver):
         HomePage.__init__(self)
         BoH.wait_until_appear(self, self.locators.HomeScreen.iconCheckIn, 5)
         #if BoH.is_exist(self, self.locators.HomeScreen.iconCheckIn, expected=True):
-        if self.appiumserver == 'local':
-            BoH.click(self, self.locators.HomeScreen.iconCheckIn)
-        else:
-            BoH.tap_by_coordinates(self, 385, 480)
+        #if self.appiumserver == 'local':
+        BoH.click(self, self.locators.HomeScreen.iconCheckIn)
+        #else:
+           # BoH.tap_by_coordinates(self, 385, 480)
         BoH.wait_until_disappear(self, self.locators.HomeScreen.iconCheckIn, 3)
         CheckInPage.locationServices(self)
         BoH.wait_until_appear(self, self.locators.HomeScreen.homeTitle, 5)
@@ -62,10 +63,10 @@ class HomePage(Driver):
         HomePage.__init__(self)
         BoH.wait_until_appear(self, self.locators.HomeScreen.iconTrailDetails, 5)
         #if BoH.is_exist(self, self.locators.HomeScreen.iconTrailDetails, expected=True):
-        if self.appiumserver == 'local':
-            BoH.click(self, self.locators.HomeScreen.iconTrailDetails)
-        else:
-            BoH.tap_by_coordinates(self, 130, 480)
+        #if self.appiumserver == 'local':
+        BoH.click(self, self.locators.HomeScreen.iconTrailDetails)
+        #else:
+            #BoH.tap_by_coordinates(self, 130, 480)
         BoH.wait_until_disappear(self, self.locators.HomeScreen.iconTrailDetails, 3)
         if self.appiumserver == 'local':
             TrailDetailsPage.verifyTrailDetailsPage(self)
