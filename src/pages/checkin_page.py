@@ -16,9 +16,13 @@ class CheckInPage(Driver):
         CheckInPage.__init__(self)
         if BoH.is_exist(self, self.locators.CheckInScreen.sorryCheckInMessage, expected=True):
             assert (BoH.is_exist(self, self.locators.CheckInScreen.sorryCheckInMessage)) is True, "User location service is disabled for BoH"
-            BoH.click(self, self.locators.CheckInScreen.okCheckInButton)
+            #BoH.click(self, self.locators.CheckInScreen.okCheckInButton)
+            if self.apps == 'android':
+                BoH.click(self, self.locators.CheckInScreen.okCheckInButton)
+            else:
+                BoH.tap_by_coordinates(self, 195, 780)
         else:
             if self.apps == 'android':
                 BoH.click(self, self.locators.CheckInScreen.closeButton)
             else:
-                BoH.tap_by_coordinates(self, 25, 70)
+                BoH.tap_by_coordinates(self, 25, 65)
