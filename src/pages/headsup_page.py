@@ -6,7 +6,7 @@ import src.screen_locators.ios_screen_enums
 import src.screen_locators.android_screen_enums
 from enum import Enum
 from src.helpers.appium_driver import Driver
-from appium.options.ios import XCUITestOptions
+from src.pages.navigation_page import NavigationPage
 
 
 class HeadsUpPage(Driver):
