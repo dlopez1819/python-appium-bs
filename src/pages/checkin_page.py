@@ -20,7 +20,8 @@ class CheckInPage(Driver):
             if self.apps == 'android':
                 BoH.click(self, self.locators.CheckInScreen.okCheckInButton)
             else:
-                BoH.tap_by_coordinates(self, 195, 780)
+                #BoH.tap_by_coordinates(self, 195, 780)
+                 BoH.tap_by_coordinates(self, 25, 65)
         else:
             if self.apps == 'android':
                 BoH.click(self, self.locators.CheckInScreen.closeButton)
