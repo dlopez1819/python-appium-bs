@@ -33,6 +33,11 @@ class BrowserstackObjects(Driver):
         else:
             BoH.click(self, self.locators.loginOktaScreen.loginButton)
 
+    def tap_bs_close_button(self):
+        BrowserstackObjects.__init__(self)
+        if self.apps == 'android':
+            BoH.click(self, self.locators.loginOktaScreen.closeTab_BS)
+
     def swipe_bs_page(self):
         BrowserstackObjects.__init__(self)
         if self.apps == 'ios':
