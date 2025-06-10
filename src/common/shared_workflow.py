@@ -58,6 +58,12 @@ class SharedWorkflow(Driver):
         # SELECT & ENTER PASSWORD
         if self.appiumserver == "browserstack" and self.apps == 'android':
             BrowserstackObjects.enter_bs_password(self, test_pwd)
+            if BoH.get_attribute(self, self.locators.loginOktaScreen.username_BS, 'text') is None:
+                BrowserstackObjects.tap_bs_close_button(self)
+                BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
+                BrowserstackObjects.enter_bs_username(self, test_email)
+                BrowserstackObjects.swipe_bs_page(self)
+                BrowserstackObjects.enter_bs_password(self, test_pwd)
         else:
             BoH.wait_until_appear(self, self.locators.loginOktaScreen.password, 5)
             BoH.send_keys(self, self.locators.loginOktaScreen.password, test_pwd)
