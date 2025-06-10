@@ -21,6 +21,7 @@ class HeadsUpPage(Driver):
     def verifyInitHeadsUp(self):
         HeadsUpPage.__init__(self)
         if self.apps == 'ios':
+            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.headsUpText, 5)
             if BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpText, expected=True):
                 BoH.click(self, self.locators.HeadsUpScreen.continueButton)
         if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True):
@@ -28,11 +29,13 @@ class HeadsUpPage(Driver):
 
     def verifyVehicleProfile(self):
         HeadsUpPage.__init__(self)
-        BoH.wait_until_appear(self, self.locators.VehicleProfileScreen.updateProfileButton, 3)
+        BoH.wait_until_appear(self, self.locators.VehicleProfileScreen.updateProfileButton, 5)
         if BoH.is_exist(self, self.locators.VehicleProfileScreen.updateProfileButton, expected=True):
             BoH.click(self, self.locators.VehicleProfileScreen.dismissProfileButton)
 
     def checkTrailAndBadges(self, flagLogin):
+        HeadsUpPage.__init__(self)
+        BoH.wait_until_appear(self, self.locators.NavigationScreen.trailAndBadgesTitle, 5)
         if flagLogin == True:
             if self.apps == 'ios':
                 if BoH.is_exist(self, self.locators.NavigationScreen.trailAndBadgesTitle, expected=True):
