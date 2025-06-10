@@ -97,6 +97,7 @@ class loginOktaScreen(Driver):
     password_BS = (AppiumBy.XPATH, "//*/android.view.View[4]/android.view.View/android.view.View/android.widget.EditText")
     loginButton_BS = (AppiumBy.XPATH, "//android.widget.Button[@text='Log In']")
     loginTab_BS =  (AppiumBy.XPATH, "//android.view.View[@text='Log In']")
+    closeTab_BS = (AppiumBy.ACCESSIBILITY_ID, "Close tab")
 
 class loginAsGuest(Driver):
     continueAsGuestButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonSkipLoginSkip")
