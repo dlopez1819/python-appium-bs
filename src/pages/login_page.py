@@ -90,6 +90,11 @@ class LoginPage(Driver):
         LoginPage.__init__(self)
         LoginPage.initLogin(self, flagOkta)
 
+    def onboardingLoginTutorial(self, test_email, test_pwd):
+        flagOkta = True
+        LoginPage.__init__(self)
+        LoginPage.initLogin(self, flagOkta)
+
     def userSignUp(self, test_email, test_pwd):
         flagOkta = False
         LoginPage.__init__(self)
