@@ -42,3 +42,4 @@ class TestBoHNormalMoreMenu(Driver):
         TermsOfUsePage.verifyTermsOfUsePage(self)
         #MenuPage.logout(self)
         #LoginPage.assertIfLoginPage(self)
+
