@@ -68,6 +68,7 @@ class LoginPage(Driver):
         lagOkta = True
         LoginPage.__init__(self)
         LoginPage.initLogin(self, flagOkta)
+        BoH.wait_until_appear(self, self.locators.LoginScreen.loginSignUpButton, 5)
         BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
         SharedWorkflow.oktaLogin(self, test_email, test_pwd)
 
@@ -75,6 +76,7 @@ class LoginPage(Driver):
         flagOkta = False
         LoginPage.__init__(self)
         LoginPage.initLogin(self, flagOkta)
+        BoH.wait_until_appear(self, self.locators.LoginScreen.loginSignUpButton, 5)
         BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
         SharedWorkflow.oktaLogin(self, test_email, test_pwd)
 
@@ -82,6 +84,7 @@ class LoginPage(Driver):
         flagOkta = False
         LoginPage.__init__(self)
         LoginPage.initLogin(self, flagOkta)
+        BoH.wait_until_appear(self, self.locators.LoginScreen.continueAsGuessButton, 5)
         BoH.click(self, self.locators.LoginScreen.continueAsGuessButton)
         SharedWorkflow.loginAsGuess(self)
 
@@ -99,6 +102,7 @@ class LoginPage(Driver):
         flagOkta = False
         LoginPage.__init__(self)
         LoginPage.initLogin(self, flagOkta)
+        BoH.wait_until_appear(self, self.locators.LoginScreen.loginSignUpButton, 5)
         BoH.click(self, self.locators.LoginScreen.loginSignUpButton)
         LoginPage.authBOHSignInAlert(self)
         SharedWorkflow.oktaLogin(self, test_email, test_pwd)
