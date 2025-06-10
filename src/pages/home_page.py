@@ -61,7 +61,7 @@ class HomePage(Driver):
         if BoH.is_exist(self, self.locators.HomeScreen.iconTrailDetails, expected=True):
             BoH.click(self, self.locators.HomeScreen.iconTrailDetails)
             BoH.wait_until_disappear(self, self.locators.HomeScreen.iconTrailDetails, 3)
-        #if self.appiumserver == 'local':
+        if self.appiumserver == 'local':
             TrailDetailsPage.verifyTrailDetailsPage(self)
 
     def homeViewLeaderboard(self):
