@@ -28,5 +28,5 @@ def run_automation_test(c, m, app, env, appiumServer, device, operatingsystem):
 
     if appiumServer == "browserstack": #For browserstack enable parallel running to 5
         #if os.environ.get('browserstack_build_id') is not None:
-        runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --workers 5 --tests-per-worker 1 --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{operatingsystem}' --reruns 0 --alluredir \report"
+        runningCommand = f"python3 -m pytest -m {m} ./src/testcases/{app}/* --workers 5 --tests-per-worker 1 --env ={env} --app={app} --appiumServer={appiumServer} --device='{device}' --os='{operatingsystem}' --reruns 0 --alluredir='./report'"
     c.run(runningCommand)
