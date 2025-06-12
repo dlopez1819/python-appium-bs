@@ -34,6 +34,7 @@ class TestBoHLogin(Driver):
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         HeadsUpPage.verifyVehicleProfile(self)
         HeadsUpPage.checkTrailAndBadges(self, flagLogin= True)
+        HomePage.assertIfHomePage(self)
 
     @pytest.mark.regression
     @pytest.mark.sanity
