@@ -35,7 +35,6 @@ class LoginPage(Driver):
             if BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpText, expected=True, n=1) is True:
                     return False  # Not logged in
         if self.apps == 'android':
-            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.warningTitle, 5)
             if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True, n=1) is True:
                 return False
         else:
@@ -44,7 +43,6 @@ class LoginPage(Driver):
     def initLogin(self, flagOkta):
         LoginPage.__init__(self)
         if self.apps == 'android':
-            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.warningTitle, 5)
             if self.appiumserver == 'browserstack':
                 BoH.tap_by_coordinates(self, 550, 1980)
             else:
