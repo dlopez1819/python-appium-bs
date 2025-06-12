@@ -51,3 +51,17 @@ class TestBoHLogin(Driver):
         MenuPage.guestLogOut(self)
         LoginPage.assertIfLoginPage(self)
 
+    @pytest.mark.regression
+    @pytest.mark.sanity
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    # TEST CASES:  BOH19-TC-2572
+    def test_boh_logout_email_BOH19_TC2572(self, test_email, test_pwd):
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.oktaUserLogin(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        MenuPage.logout(self)
+        LoginPage.assertIfLoginPage(self)
+
