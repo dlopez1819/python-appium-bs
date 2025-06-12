@@ -17,13 +17,9 @@ class AlertsScreen(Driver):
     yesLogOutButton = (AppiumBy.XPATH, '//*[contains(@text, "YES")]')
 
 class HeadsUpScreen(Driver):
-    warningTitle = (AppiumBy.XPATH, '//*[contains(@text, "Warning Before We Begin")]')
-    warningText = (AppiumBy.XPATH, "//*[contains(@text, 'Rock crawling and off-road driving are inherently dangerous activities. "
-                                   "By experiencing the Badge of Honor program, users assume the risk of off-road driving. "
-                                   "Always take proper precautions and exercise discretion before attempting off-road driving. "
-                                   "Including, without limitation, driving within your ability and experience, "
-                                   "using appropriate harnessing devices and having proper safety gear ready.')]")
-    ackContinueButton = (AppiumBy.XPATH, "//*[contains(@text, 'Acknowledge & Continue')]")
+    warningTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textOnboardingTitle')
+    warningText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textOnboardingBody")
+    ackContinueButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/iAcceptButton")
 
     headsUpUserContentTitle = (AppiumBy.XPATH, '//*[contains(@text, "USER CONTENT GUIDELINES")]')
     headsUpUserContentText = (AppiumBy.XPATH, '//*[contains(@text, "The user generated content policies for Jeep® Badge of Honor are designed to help ensure that everyone viewing contributed content has a positive experience. '
