@@ -124,6 +124,8 @@ class MenuScreen(Driver):
     logoutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log Out'`]")
     guestLogOutButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Log In Or Sign Up'`]")
     termsOfUseButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Terms of Use'`]")
+    disclaimerButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Disclaimer'`]")
+    faqsButton = (AppiumBy.ACCESSIBILITY_ID, "FAQS")
 
 class LocationScreen(Driver):
     sorryLocationMessage = (AppiumBy.ACCESSIBILITY_ID, "Sorry")
@@ -176,4 +178,14 @@ class TermsOfUseScreen(Driver):
     termOfUseTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'TERMS OF USE'`]")
     closeButton= (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'icon close'`]")
     contentBodyText = (AppiumBy.CLASS_NAME, "XCUIElementTypeTextView")
+
+class DisclaimerScreen(Driver):
+    disclaimerTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'LEGAL & SAFETY'`]")
+    closeButton= (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'icon close'`]")
+    contentBodyText = (AppiumBy.CLASS_NAME, "XCUIElementTypeTextView")
+
+class FAQsScreen(Driver):
+    faqsTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'PROGRAM FAQS'`]")
+    closeButton= (AppiumBy.ACCESSIBILITY_ID, "icon backArrow")
+    contentBodyText = (AppiumBy.ACCESSIBILITY_ID, "What is a VIN and where do I find it on my Jeep® brand vehicle?")
 
