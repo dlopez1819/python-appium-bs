@@ -25,7 +25,7 @@ class TestBoHLogin(Driver):
     #@pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    # TEST CASES: BOH19-TC-666, BOH19-TC-574, BOH19-TC-2572, BOH19-TC-2569, BOH19-TC-2540, BOH19-TC-2568
+    # TEST CASES: BOH19-TC-666, Okta Login Test
     def test_boh_okta_login_BOH19_TC666(self, test_email, test_pwd):
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.oktaUserLogin(self, test_email, test_pwd)
@@ -34,18 +34,27 @@ class TestBoHLogin(Driver):
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         HeadsUpPage.verifyVehicleProfile(self)
         HeadsUpPage.checkTrailAndBadges(self, flagLogin= True)
-        #MenuPage.logout(self)
-       # LoginPage.assertIfLoginPage(self)
 
     @pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
-        # TEST CASES: BOH19-TC-664
+       # TEST CASES: BOH19-TC-664, Guess Login Test
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.guestUserLogin(self)
         else:
             HomePage.verifyHomePage(self)
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
-        #MenuPage.guestLogOut(self)
-        #LoginPage.assertIfLoginPage(self)
+
+    @pytest.mark.regression
+    @pytest.mark.sanity
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    # TEST CASES:  BOH19-TC-2572
+    def test_boh_logout_email_BOH19_TC2572(self, test_email, test_pwd):
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.oktaUserLogin(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        HomePage.assertIfHomePage(self)
