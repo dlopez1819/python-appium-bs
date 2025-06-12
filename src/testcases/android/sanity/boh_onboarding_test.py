@@ -56,7 +56,7 @@ class TestBoHOnBoarding(Driver):
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         LoginPage.assertIfLoginPage(self)
 
-    @pytest.mark.regression2
+    #@pytest.mark.regression
     @pytest.mark.sanity
     @allure.description("BoH onboarding email Login Test [BOH19-TC-2569]")
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
