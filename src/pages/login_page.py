@@ -61,8 +61,8 @@ class LoginPage(Driver):
             BoH.click(self, self.locators.NavigationScreen.skipButton)
         if self.apps == 'ios':
             LoginPage.selectPreProEnv(self)
-        else:
-            AlertsPage.allowLocationAlert(self)
+        #else:
+            #AlertsPage.allowLocationAlert(self)
     
     def selectPreProEnv(self):
         LoginPage.__init__(self)
