@@ -25,6 +25,7 @@ class TestBoHLogin(Driver):
     def teardown_method(self):
         super().tearDown()
 
+    @pytest.mark.regression
     @pytest.mark.sanity
     @allure.description("BoH Okta Login Test [BOH19-TC-666, BOH19-TC-574, BOH19-TC-2572, BOH19-TC-2569]")
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
@@ -39,6 +40,7 @@ class TestBoHLogin(Driver):
         MenuPage.logout(self)
         LoginPage.assertIfLoginPage(self)
 
+    @pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
