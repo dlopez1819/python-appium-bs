@@ -43,14 +43,17 @@ class LoginPage(Driver):
     def initLogin(self, flagOkta):
         LoginPage.__init__(self)
         if self.apps == 'android':
+            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.warningTitle, 5)
             if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True):
                 BoH.click(self, self.locators.HeadsUpScreen.ackContinueButton)
         else:
             HeadsUpPage.verifyInitHeadsUp(self)
         if flagOkta == True:
+            BoH.wait_until_appear(self, self.locators.NavigationScreen.exploreTrailsTitle, 5)
             if BoH.is_exist(self, self.locators.NavigationScreen.exploreTrailsTitle, expected=True, n=1) is True:
                 NavigationPage.initBoHExploreNav(self)
         else:
+            BoH.wait_until_appear(self, self.locators.NavigationScreen.skipButton, 5)
             BoH.click(self, self.locators.NavigationScreen.skipButton)
         if self.apps == 'ios':
             LoginPage.selectPreProEnv(self)
