@@ -59,7 +59,7 @@ class TestBoHNormalMoreMenu(Driver):
         MenuPage.disclaimer(self)
         DisclaimerPage.verifyDisclaimer(self)
 
-    @pytest.mark.regression2
+    @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_normal_more_menu_faqs_BOH19_TC541(self, test_email, test_pwd):
