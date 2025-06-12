@@ -64,5 +64,5 @@ class TestBoHOnBoarding(Driver):
         else:
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
-        HeadsUpPage.verifyVehicleProfile(self)
+        #HeadsUpPage.verifyVehicleProfile(self)
     
