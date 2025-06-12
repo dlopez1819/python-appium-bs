@@ -43,11 +43,8 @@ class LoginPage(Driver):
     def initLogin(self, flagOkta):
         LoginPage.__init__(self)
         if self.apps == 'android':
-            if self.appiumserver == 'browserstack':
-                BoH.tap_by_coordinates(self, 550, 1980)
-            else:
-                if BoH.is_exist(self, self.locators.HeadsUpScreen.ackContinueButton, expected=True):
-                    BoH.click(self, self.locators.HeadsUpScreen.ackContinueButton)
+            if BoH.is_exist(self, self.locators.HeadsUpScreen.ackContinueButton, expected=True):
+                BoH.click(self, self.locators.HeadsUpScreen.ackContinueButton)
         else:
             HeadsUpPage.verifyInitHeadsUp(self)
         if flagOkta == True:
@@ -59,8 +56,8 @@ class LoginPage(Driver):
             BoH.click(self, self.locators.NavigationScreen.skipButton)
         if self.apps == 'ios':
             LoginPage.selectPreProEnv(self)
-        #else:
-            #AlertsPage.allowLocationAlert(self)
+        else:
+            AlertsPage.allowLocationAlert(self)
     
     def selectPreProEnv(self):
         LoginPage.__init__(self)
