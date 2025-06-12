@@ -107,6 +107,8 @@ class MenuScreen(Driver):
     logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
     guestLogOutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerGuestSignIn")
     termsOfUseButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerTermsOfUse")
+    disclaimerButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerDisclaimer")
+    faqsButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerFaqs")
 
 class ProfileScreen(Driver):
     logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
@@ -151,5 +153,16 @@ class TermsOfUseScreen(Driver):
     termOfUseTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentToolbarTitle")
     closeButton= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerContentClose")
     contentBodyText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentBody")
+
+class DisclaimerScreen(Driver):
+    disclaimerTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentToolbarTitle")
+    closeButton= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerContentClose")
+    contentBodyText = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textHamburgerContentBody")
+
+class FAQsScreen(Driver):
+    faqsTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textOffroadingDialogToolbar")
+    closeButton= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonOffroadingDialogToolbarBack")
+    contentBodyText = (AppiumBy.XPATH, '//*[contains(@text, "Can anyone sign up for the program and get hard badges for their vehicle?")]')
+
     
 
