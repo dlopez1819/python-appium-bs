@@ -21,8 +21,8 @@ class SharedWorkflow(Driver):
     def verifySplash(self):
         SharedWorkflow.__init__(self)
         BoH.is_exist(self, self.locators.SplashScreen.splashLogo, expected=True)
-        if self.apps == 'android':
-            AlertsPage.allowSendNotificationAlert(self)
+        #if self.apps == 'android':
+            #AlertsPage.allowSendNotificationAlert(self)
 
     def oktaLogin(self, test_email, test_pwd):
         SharedWorkflow.__init__(self)
