@@ -36,3 +36,15 @@ class MenuPage(Driver):
         BoH.click(self, self.locators.MenuScreen.termsOfUseButton)
         BoH.wait_until_disappear(self, self.locators.MenuScreen.termsOfUseButton, 5)
 
+    def disclaimer(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.disclaimerButton)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.disclaimerButton, 5)
+
+    def faqs(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.faqsButton)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.faqsButton, 5)
+
