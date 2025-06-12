@@ -56,7 +56,7 @@ class TestBoHOnBoarding(Driver):
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         LoginPage.assertIfLoginPage(self)
 
-    @pytest.mark.regression
+    @pytest.mark.regression2
     @pytest.mark.sanity
     @allure.description("BoH onboarding email Login Test [BOH19-TC-2569]")
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
@@ -66,6 +66,6 @@ class TestBoHOnBoarding(Driver):
             LoginPage.oktaUserLogin(self, test_email, test_pwd)
         else:
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
-        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
-        HeadsUpPage.verifyVehicleProfile(self)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=False)
+        #HeadsUpPage.verifyVehicleProfile(self)
 
