@@ -53,7 +53,7 @@ class TestBoHLogin(Driver):
         MenuPage.guestLogOut(self)
         LoginPage.assertIfLoginPage(self)
 
-    @pytest.mark.regression
+    @pytest.mark.regression2
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES:  BOH19-TC-2572
