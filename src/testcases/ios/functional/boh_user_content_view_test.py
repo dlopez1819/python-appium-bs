@@ -34,6 +34,7 @@ class TestBoHUserContentView(Driver):
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin = False)
         UserGuideLinesPage.verifyTermsOfUse(self)
         UserGuideLinesPage.verifyPrivacyPolicyPage(self)
+        HomePage.assertIfHomePage(self)
         #UserGuideLinesPage.logout(self)
         #LoginPage.assertIfLoginPage(self)
 
