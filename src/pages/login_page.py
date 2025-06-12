@@ -35,8 +35,8 @@ class LoginPage(Driver):
             if BoH.is_exist(self, self.locators.HeadsUpScreen.headsUpText, expected=True, n=1) is True:
                     return False  # Not logged in
         if self.apps == 'android':
-            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.warningTitle, 5)
-            if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True, n=1) is True:
+            BoH.wait_until_appear(self, self.locators.HeadsUpScreen.ackContinueButton, 5)
+            if BoH.is_exist(self, self.locators.HeadsUpScreen.ackContinueButton, expected=True, n=1) is True:
                 return False
         else:
             return True  # logged in
@@ -45,7 +45,7 @@ class LoginPage(Driver):
         LoginPage.__init__(self)
         if self.apps == 'android':
             BoH.wait_until_appear(self, self.locators.HeadsUpScreen.warningTitle, 5)
-            if BoH.is_exist(self, self.locators.HeadsUpScreen.warningTitle, expected=True):
+            if BoH.is_exist(self, self.locators.HeadsUpScreen.ackContinueButton, expected=True):
                 BoH.click(self, self.locators.HeadsUpScreen.ackContinueButton)
         else:
             HeadsUpPage.verifyInitHeadsUp(self)
