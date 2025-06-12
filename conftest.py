@@ -66,7 +66,7 @@ def pytest_runtest_makereport(item, call):
                 Driver().updateBrowserstackStatus(True, "teardown running fail")
             else:
                 Driver().endVideoRecording(test_name, False)
-                Driver().screenshot_on_failure(test_name)
+                #Driver().screenshot_on_failure(test_name)
 
 @pytest.fixture(scope='session')
 def get_logger():
