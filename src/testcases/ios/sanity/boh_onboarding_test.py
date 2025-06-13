@@ -54,7 +54,7 @@ class TestBoHOnBoarding(Driver):
             UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
         LoginPage.assertIfLoginPage(self)
 
-    @pytest.mark.regression
+    #@pytest.mark.regression
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-2569
