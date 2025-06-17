@@ -37,6 +37,7 @@ class TestBoHLogin(Driver):
         HomePage.assertIfHomePage(self)
 
     @pytest.mark.regression
+    @pytest.mark.functional
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
@@ -48,6 +49,7 @@ class TestBoHLogin(Driver):
         UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
 
     @pytest.mark.regression
+    @pytest.mark.functional
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES:  BOH19-TC-2572
