@@ -41,6 +41,7 @@ class TestBoHLogin(Driver):
         LoginPage.assertIfLoginPage(self)
 
     @pytest.mark.regression
+    @pytest.mark.functional
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
