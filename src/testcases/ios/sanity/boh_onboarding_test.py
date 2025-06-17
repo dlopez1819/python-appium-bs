@@ -22,6 +22,7 @@ class TestBoHOnBoarding(Driver):
         super().tearDown()
 
     @pytest.mark.regression
+    @pytest.mark.functional
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-2568. App On-Boarding (Tutorial)
@@ -33,6 +34,7 @@ class TestBoHOnBoarding(Driver):
         LoginPage.assertIfLoginPage(self)
 
     @pytest.mark.regression
+    @pytest.mark.functional
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-575. App On-Boarding skip (Tutorial)
@@ -44,6 +46,7 @@ class TestBoHOnBoarding(Driver):
         LoginPage.assertIfLoginPage(self)
 
     @pytest.mark.regression
+    @pytest.mark.functional
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-574. app On-Boarding
