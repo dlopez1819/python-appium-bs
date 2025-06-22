@@ -50,6 +50,8 @@ class NavigationScreen(Driver):
     learnEssentialsText = (AppiumBy.XPATH, "//*[contains(@text, 'Explore Off-Roading 101 to learn the basic safety principles and maneuvers of off-roading in your Jeep® brand vehicle.)]")
     skipButton = (AppiumBy.XPATH, "//*[contains(@text, 'Skip')]")
     letsGoButton = (AppiumBy.XPATH, "//*[ends-with(@resource-id, 'com.chrysler.JeepBOH:id/buttonOnboardingEssentialsGo')]") # Let’s Go
+    okButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/btn_popup_dialog_action_primary")
+    closeButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/btn_popup_dialog_action_close")
 
 class HomeScreen(Driver):
     homeTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textToolbarMainTitle")
@@ -105,6 +107,10 @@ class MenuScreen(Driver):
     termsOfUseButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerTermsOfUse")
     disclaimerButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerDisclaimer")
     faqsButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerFaqs")
+    offRoading101Button = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerOffRoading")
+    announcementsButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerAnnouncements")
+    suggestATrailButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSuggest")
+    earnABadgeButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerTutorialCheckInTrail")
 
 class ProfileScreen(Driver):
     logoutButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonHamburgerSignOut")
@@ -159,6 +165,30 @@ class FAQsScreen(Driver):
     faqsTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textOffroadingDialogToolbar")
     closeButton= (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonOffroadingDialogToolbarBack")
     contentBodyText = (AppiumBy.XPATH, '//*[contains(@text, "Can anyone sign up for the program and get hard badges for their vehicle?")]')
+
+class OffRoading101Screen(Driver):
+    offRoadingTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/imageOffroadingHeaderBanner")
+    trailDiffRatingContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutOffroadingTrailDifficultyContainer")
+    safetyChecklistContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutOffroadingSafetyContainer")
+    briefHistoryContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutOffroadingHistoryContainer")
+    terrainElementsContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutOffroadingElementsContainer")
+    trailRatedContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutOffroadingVehiclesContainer")
+    offRoadsFaqsContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutOffroadingFaqsContainer")
+
+class AnnouncementsScreen(Driver):
+    announcementsTitle = (AppiumBy.XPATH, "//*[contains(@text, 'ANNOUNCEMENTS')]")
+    announcementsContainerList = (AppiumBy.XPATH, "(//android.view.ViewGroup[@resource-id='com.chrysler.JeepBOH:id/layoutAnnouncementItemBottomContainer'])[1]")
+
+class SuggestATrailScreen(Driver):
+    suggestATrailTitle = (AppiumBy.XPATH, "//*[contains(@text, 'SUGGEST A TRAIL')]")
+
+class earnABadgeScreen(Driver):
+    earnBadgeTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Check Into Trails And Earn Badges')]")
+    openMapsTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Open Maps from the Bottom Menu')]")
+    openTrailTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Open a Trail')]")
+    tapEarnBadgeTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Tap the Earn Badge Button')]")
+    checkIntoTrailTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Check Into the Trail')]")
+
 
     
 
