@@ -21,7 +21,7 @@ class NavigationPage(Driver):
         NavigationPage.__init__(self)
         pages =  {0: self.locators.NavigationScreen.exploreTrailsTitle, 1: self.locators.NavigationScreen.uploadPhotosTitle,
                     2: self.locators.NavigationScreen.earnPointBadgesTitle, 3: self.locators.NavigationScreen.learnEssentialsTitle}
-        NavigationPage.navigatePages(self, pages)
+        NavigationPage.navigatePages(self, pages, flagAlert=True)
 
     def checkTrailsAndBadgesNav(self):
        NavigationPage.__init__(self)
@@ -30,7 +30,16 @@ class NavigationPage(Driver):
                 2: self.locators.NavigationScreen.openTrailTitle,
                 3: self.locators.NavigationScreen.earnBadgeButtonTitle,
                 4: self.locators.NavigationScreen.checkIntoTrailTitle}
-       NavigationPage.navigatePages(self, pages)
+       NavigationPage.navigatePages(self, pages, flagAlert=True)
+
+    def menuEarnABadgeNav(self):
+       NavigationPage.__init__(self)
+       pages = {0: self.locators.earnABadgeScreen.earnBadgeTitle,
+                1: self.locators.earnABadgeScreen.openMapsTitle,
+                2: self.locators.earnABadgeScreen.openTrailTitle,
+                3: self.locators.earnABadgeScreen.tapEarnBadgeTitle,
+                4: self.locators.earnABadgeScreen.checkIntoTrailTitle}
+       NavigationPage.navigatePages(self, pages, flagAlert=False)
 
     def navigatePages(self, pages):
         NavigationPage.__init__(self)
@@ -40,6 +49,12 @@ class NavigationPage(Driver):
                 BoH.swipe_by_coordinates(self, self.width - self.offset,  self.height  / 2, self.offset, self.height / 2, 500)
             else:
                 BoH.swipe_by_coordinates(self, self.width - 100, self.height / 2, self.offset, self.height / 2,500)
+        if flagAlert == True:
+            NavigationPage.alertsOn(self)
+        else:
+            pass
+        
+    def alertsOn(self):
         if self.apps == 'ios':
             btn_location = BoH.get_element_location(self, self.locators.NavigationScreen.pageIndicatorDots)
             BoH.tap_by_coordinates(self, btn_location['x'], btn_location['y'] - 50)
@@ -47,3 +62,14 @@ class NavigationPage(Driver):
             BoH.click(self, self.locators.NavigationScreen.letsGoButton)
         if self.appiumserver == "browserstack":
             AlertsPage.allowLocationAlert(self)
+
+    def acceptNavPage(self):
+        # click on OK button
+        if self.apps == 'android':
+            BoH.click(self, self.locators.NavigationScreen.okButton)
+        else:
+            BoH.tap_by_coordinates(self, 200, 705)
+
+    def closeNavPage(self):
+        # click on X button to close the page
+        BoH.click(self, self.locators.NavigationScreen.closeButton)
