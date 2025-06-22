@@ -46,6 +46,7 @@ class TestBoHNormalMoreMenu(Driver):
         HomePage.assertIfHomePage(self)
         MenuPage.termsOfUse(self)
         TermsOfUsePage.verifyTermsOfUsePage(self)
+        TermsOfUsePage.closeTermsOfUsePage(self)
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -61,6 +62,7 @@ class TestBoHNormalMoreMenu(Driver):
         HomePage.assertIfHomePage(self)
         MenuPage.disclaimer(self)
         DisclaimerPage.verifyDisclaimer(self)
+        DisclaimerPage.closeDisclaimerPage(self)
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -76,6 +78,7 @@ class TestBoHNormalMoreMenu(Driver):
         HomePage.assertIfHomePage(self)
         MenuPage.faqs(self)
         FaqsPage.verifyFaqs(self)
+        FaqPage.closeFaqsPage(self)
 
     @pytest.mark.regression
     @pytest.mark.functional
