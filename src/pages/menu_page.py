@@ -48,3 +48,28 @@ class MenuPage(Driver):
         BoH.click(self, self.locators.MenuScreen.faqsButton)
         BoH.wait_until_disappear(self, self.locators.MenuScreen.faqsButton, 5)
 
+    def offRoading101(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.offRoading101Button)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.offRoading101Button, 5)
+
+    def announcements(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.announcementsButton)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.announcementsButton, 5)
+
+    def suggestTrail(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.suggestATrailButton)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.suggestATrailButton, 5)
+
+    def earnABadge(self):
+        MenuPage.__init__(self)
+        HomePage.homeAnnouncement(self)
+        BoH.click(self, self.locators.MenuScreen.earnABadgeButton)
+        BoH.wait_until_disappear(self, self.locators.MenuScreen.earnABadgeButton, 5)
+
+
