@@ -1,5 +1,6 @@
 from src.helpers.app_objects import BoH
 from src.helpers.appium_driver import Driver
+from src.common.shared_workflow import SharedWorkflow
 
 class AnnouncementsPage(Driver):
 
