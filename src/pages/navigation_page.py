@@ -41,7 +41,7 @@ class NavigationPage(Driver):
                 4: self.locators.earnABadgeScreen.checkIntoTrailTitle}
        NavigationPage.navigatePages(self, pages, flagAlert=False)
 
-    def navigatePages(self, pages):
+    def navigatePages(self, pages, flagAlert):
         NavigationPage.__init__(self)
         for index, element in pages.items():
             BoH.is_exist(self, element, expected=True)
