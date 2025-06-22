@@ -10,6 +10,10 @@ from src.pages.terms_of_use_page import TermsOfUsePage
 from src.pages.disclaimer_page import DisclaimerPage
 from src.pages.faqs_page import FaqsPage
 from src.pages.user_guidelines_page import UserGuideLinesPage
+from src.pages.off_roading_101_page import OffRoading101Page
+from src.pages.suggest_a_trail_page import SuggestATrailPage
+from src.pages.announcements_page import AnnouncementsPage
+from src.pages.navigation_page import NavigationPage
 
 
 class Account:
@@ -73,5 +77,69 @@ class TestBoHNormalMoreMenu(Driver):
         HomePage.assertIfHomePage(self)
         MenuPage.faqs(self)
         FaqsPage.verifyFaqs(self)
+
+    @pytest.mark.regression
+    @pytest.mark.functional
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_normal_more_menu_off_roading_101_BOH19_TC2594(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC-541
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.oktaUserLoginSkip(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        HomePage.assertIfHomePage(self)
+        MenuPage.offRoading101(self)
+        OffRoading101Page.verifyOffRoading101(self)
+        OffRoading101Page.closeOffRoading101Page(self)
+
+    @pytest.mark.regression
+    @pytest.mark.functional
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_normal_more_menu_announcements_BOH19_TC2595(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC-541
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.oktaUserLoginSkip(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        HomePage.assertIfHomePage(self)
+        MenuPage.announcements(self)
+        AnnouncementsPage.verifyAnnouncements(self)
+        AnnouncementsPage.closeAnnouncementsPage(self)
+
+    @pytest.mark.regression
+    @pytest.mark.functional
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_normal_more_menu_suggest_a_trail_BOH19_TC2596(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC-541
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.oktaUserLoginSkip(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        HomePage.assertIfHomePage(self)
+        MenuPage.suggestTrail(self)
+        SuggestATrailPage.verifySuggestATrail(self)
+        SuggestATrailPage.closeSuggestATrailPage(self)
+
+    @pytest.mark.regression
+    @pytest.mark.functional
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_normal_more_menu_earn_a_badge_BOH19_TC2597(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC-541
+        if LoginPage.isNormalUserLoggedIn(self) is False:
+            LoginPage.oktaUserLoginSkip(self, test_email, test_pwd)
+        else:
+            UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        UserGuideLinesPage.verifyUserContentGuideLines(self, flagLogin=True)
+        HeadsUpPage.verifyVehicleProfile(self)
+        HomePage.assertIfHomePage(self)
+        MenuPage.earnABadge(self)
+        NavigationPage.menuEarnABadgeNav(self)
+        NavigationPage.acceptNavPage(self)
 
 
