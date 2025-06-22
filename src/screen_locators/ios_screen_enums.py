@@ -126,6 +126,10 @@ class MenuScreen(Driver):
     termsOfUseButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeButton[`name == 'Terms of Use'`]")
     disclaimerButton = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'Disclaimer'`]")
     faqsButton = (AppiumBy.ACCESSIBILITY_ID, "FAQS")
+    offRoading101Button = (AppiumBy.ACCESSIBILITY_ID, "Off-Roading 101")
+    announcementsButton = (AppiumBy.ACCESSIBILITY_ID, "Announcements")
+    suggestATrailButton = (AppiumBy.ACCESSIBILITY_ID, "Suggest a Trail")
+    earnABadgeButton = (AppiumBy.ACCESSIBILITY_ID, "Earn a Badge")
 
 class LocationScreen(Driver):
     sorryLocationMessage = (AppiumBy.ACCESSIBILITY_ID, "Sorry")
@@ -188,4 +192,28 @@ class FAQsScreen(Driver):
     faqsTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'PROGRAM FAQS'`]")
     closeButton= (AppiumBy.ACCESSIBILITY_ID, "icon backArrow")
     contentBodyText = (AppiumBy.ACCESSIBILITY_ID, "What is a VIN and where do I find it on my Jeep® brand vehicle?")
+
+class OffRoading101Screen(Driver):
+    offRoadingTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'OFF-ROADING 101'`]")
+    trailDiffRatingContainer = (AppiumBy.ACCESSIBILITY_ID, "Trail Difficulty Rating")
+    safetyChecklistContainer = (AppiumBy.ACCESSIBILITY_ID, "Safety Checklist")
+    briefHistoryContainer = (AppiumBy.ACCESSIBILITY_ID, "A Brief History")
+    terrainElementsContainer = (AppiumBy.ACCESSIBILITY_ID, "Terrain Elements")
+    trailRatedContainer = (AppiumBy.ACCESSIBILITY_ID, "Trail Rated® Jeep® Vehicles")
+    offRoadsFaqsContainer = (AppiumBy.ACCESSIBILITY_ID, "Off-Road FAQs")
+
+class AnnouncementsScreen(Driver):
+    announcementsTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'ANNOUNCEMENTS'`]")
+    announcementsContainerList = (AppiumBy.IOS_PREDICATE, "type == 'XCUIElementTypeCell' AND visible == true")
+
+class SuggestATrailScreen(Driver):
+    suggestATrailTitle = (AppiumBy.IOS_CLASS_CHAIN, "**/XCUIElementTypeStaticText[`name == 'SUGGEST A TRAIL'`]")
+
+class earnABadgeScreen(Driver):
+    earnBadgeTitle = (AppiumBy.ACCESSIBILITY_ID, "Check Into Trails And Earn Badges")
+    openMapsTitle = (AppiumBy.ACCESSIBILITY_ID, "Open Maps from the Bottom Menu")
+    openTrailTitle = (AppiumBy.ACCESSIBILITY_ID, "Open a Trail")
+    tapEarnBadgeTitle = (AppiumBy.ACCESSIBILITY_ID, "Tap the Earn Badge Button")
+    checkIntoTrailTitle = (AppiumBy.ACCESSIBILITY_ID, "Check Into the Trail")
+
 
