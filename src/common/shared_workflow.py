@@ -101,3 +101,10 @@ class SharedWorkflow(Driver):
             else:
                 BoH.swipe_by_coordinates(self, startX, startY, endX, endY,500)
 
+    def closePage(self):
+        if self.apps == 'ios':
+            # FaqsPage.closeFaqsPage(self)
+            BoH.tap_by_coordinates(self, 25, 70)
+        else:
+            BoH.tap_by_coordinates(self, 85, 105)
+
