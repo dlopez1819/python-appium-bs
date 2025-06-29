@@ -4,7 +4,7 @@ from src.common.shared_workflow import SharedWorkflow
 from src.helpers.appium_driver import Driver
 from src.pages.home_page import HomePage
 from src.pages.trail_map_events_page import TrailMapEventsPage
-from src.pages.trails_map_page import TrailMapPage
+from src.pages.trail_map_page import TrailMapPage
 
 class Account:
     BoHCredentials = [
