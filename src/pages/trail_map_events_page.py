@@ -1,4 +1,4 @@
-rom src.helpers.app_objects import BoH
+from src.helpers.app_objects import BoH
 from src.helpers.appium_driver import Driver
 
 class TrailMapEventsPage(Driver):
