@@ -29,7 +29,7 @@ local:
 browserstack:
   appiumserverlocation: 'https://diegolopez_JMV6tn:DsRBxpbCyFu1ZhLF4w3q@hub-cloud.browserstack.com/wd/hub'
   android:
-    app: 'bs://01f61500141ed70773b3284a2201d6eaf29ccd0d'
+    app: 'bs://b491d7bc3b9a12e02c22bf42bf3815a4eebfedbb'
     device: 'Samsung Galaxy S22'
     os_version: '12.0'
     project: 'BoH_Automation'
