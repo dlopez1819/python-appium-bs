@@ -2,7 +2,7 @@ from src.common.shared_workflow import SharedWorkflow
 from src.helpers.app_objects import BoH
 from src.helpers.appium_driver import Driver
 from src.pages.trail_details_page import TrailDetailsPage
-from src.pages.trails_sort_by_page import TrailsSortByPag
+from src.pages.trails_sort_by_page import TrailsSortByPage
 
 class TrailMapPage(Driver):
 
@@ -133,10 +133,3 @@ class TrailMapPage(Driver):
 
     def trailsMapSortBy(self):
         TrailsSortByPage.sortByPage(self)
-
-    def verifyTrailsAndMap(self):
-        TrailsMapPage.__init__(self)
-        lccationXY = BoH.element(self, self.locators.TrailsMapScreen.searchTextField).location
-        #first_xPoint = ref_drawing_point['x'] + xOffset
-        SharedWorkflow.scrollDown(self, self.width - 100, (self.height / 2 + self.offset), self.width - 100, self.offset)
-
