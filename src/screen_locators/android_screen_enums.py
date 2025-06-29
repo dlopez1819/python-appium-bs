@@ -9,8 +9,9 @@ class SplashScreen(Driver):
     allowButton = (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_button")
 
 class AlertsScreen(Driver):
-    locationAlert = (AppiumBy.XPATH, "//*[contains(@text, 'Allow Badge of Honor to access this device’s location?')]")
-    allowOnceButton = (AppiumBy.XPATH, "//*[contains(@text, 'While using the app')]")
+    locationAlert = (AppiumBy.ID, "com.android.permissioncontroller:id/permission_message")
+    onlyThisTimeButton = (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_one_time_button")
+    whileUsingAppButton = (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
     bohSendNotificationAlert = (AppiumBy.XPATH, "//*[contains(@text, 'Allow Badge of Honor to send you notifications?')]")
     allowButton = (AppiumBy.XPATH, "//*[contains(@text, 'Allow')]")
     wantToLogOut = (AppiumBy.ID, "com.chrysler.JeepBOH:id/alertTitle")
@@ -28,6 +29,10 @@ class HeadsUpScreen(Driver):
                                           'pornographic, invasive of another’s privacy, or racially, ethnically, unlawful, or otherwise unlawful or objectionable.")]')
 
     headsUpGuidelines2 = (AppiumBy.XPATH, '//*[contains(@text, "I have read the program Terms of Use and Privacy Policy.")]')
+
+    suggestATrailTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textSuggestTrailTitle')
+    suggestATrailButton = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonSuggestTrail')
+    suggestNoThanksButton = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonSuggestTrailNo')
 
 class UserGuideLinesScreen(Driver):
     acceptButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonUgcPrimary")
