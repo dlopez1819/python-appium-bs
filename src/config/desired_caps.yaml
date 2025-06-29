@@ -40,6 +40,7 @@ browserstack:
     platformVersion: '12'
     deviceName: 'Samsung Galaxy S22'
     unicodeKeyboard: True
+    geoLocation: USA
     #deviceName: 'PF'
   ios:
     userName: 'diegolopez_JMV6tn'
@@ -59,3 +60,4 @@ browserstack:
     buildName: browserstack-build-1
     projectName: BoH_Automation
     autoAcceptAlerts: True
+    geoLocation: USA
