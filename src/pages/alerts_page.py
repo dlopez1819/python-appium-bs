@@ -18,7 +18,7 @@ class AlertsPage(Driver):
     def allowLocationAlert(self):
         AlertsPage.__init__(self)
         if BoH.is_exist(self, self.locators.AlertsScreen.locationAlert, expected=True):
-            BoH.click(self,self.locators.AlertsScreen.allowOnceButton)
+            BoH.click(self,self.locators.AlertsScreen.whileUsingAppButton)
 
     def authBOHSignInAlert(self):
         if BoH.is_exist(self, self.locators.AlertsScreen.bohAuthAlert, expected=True):
