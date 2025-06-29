@@ -73,9 +73,6 @@ class HomeScreen(Driver):
     featuredTrailWeatherContainer = (AppiumBy.ID, "com.chrysler.JeepBOH:id/layoutFeaturedTrailWeatherContainer")
     homeButton = (AppiumBy.ACCESSIBILITY_ID, "menu")
 
-class BottomNavBarScreen(Driver):
-    homeBottomBar = (AppiumBy.XPATH, "(//android.widget.ImageView[@resource-id='android:id/icon'])[1]")
-
 class LoginScreen(Driver):
     logoBoH = (AppiumBy.XPATH, "//*/android.widget.ImageView[2]")
     loginSignUpButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonLoginLogin") 
@@ -188,6 +185,67 @@ class earnABadgeScreen(Driver):
     openTrailTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Open a Trail')]")
     tapEarnBadgeTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Tap the Earn Badge Button')]")
     checkIntoTrailTitle = (AppiumBy.XPATH, "//*[contains(@text, 'Check Into the Trail')]")
+
+class profileScreen(Driver):
+    profileTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textToolbarMainTitle')
+    editButton = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonToolbarMainLeft')
+
+class editProfileScreen(Driver):
+    editProfileTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textToolbarMainTitle')
+    editButton = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonToolbarMainLeft')
+
+class BottomNavBarScreen(Driver):
+    homeBottomBar = (AppiumBy.XPATH, "(//android.widget.ImageView[@resource-id='android:id/icon'])[1]")
+    trailsBottomBar = (AppiumBy.XPATH, '(//android.widget.ImageView[@resource-id="android:id/icon"])[2]')
+    profileBottomBar = (AppiumBy.XPATH, '(//*[@resource-id="android:id/icon"])[4]')
+    def BottomNavBar(self, index):
+        return (AppiumBy.XPATH, f"(//android.widget.ImageView[@resource-id='android:id/icon'])[{index}]")
+
+class layoutTabsBarScreen(Driver):
+    def layoutTabsBar(self, layout):
+        return (AppiumBy.XPATH, f"(//android.widget.LinearLayout[@content-desc='{layout}'])")
+
+
+class trailAndMapScreen(Driver):
+    trailAndMapTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textToolbarMainTitle')
+    searchEditText = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/search_bubble_edit_text')
+    searchButtonIcon = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/search_bubble_search_icon')
+    filterButtonIcon = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/bohTextViewTrailsFilterButton')
+    trailResults = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/results')
+    trailDragIndicator = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/viewTrailsDragIndicator')
+    pinMapList = (AppiumBy.CLASS_NAME, 'android.view.View')
+    trailCenterMapButton = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonTrailsCenterMap')
+
+    trayCardList = (AppiumBy.XPATH, '//*[@resource-id="com.chrysler.JeepBOH:id/destination_list_compose_view"]'
+                                     '/android.view.View/android.view.View/android.view.View')
+    horizontalCardList = (AppiumBy.XPATH, '//*[@resource-id= "com.chrysler.JeepBOH:id/composeHorizontalList"]/android.view.View/android.view.View/android.view.View')
+
+    def getTrayCard(self, index):
+        return (AppiumBy.XPATH, f"//*[@resource-id='com.chrysler.JeepBOH:id/destination_list_compose_view']/android.view.View/android.view.View/android.view.View[{index}]")
+
+    def getHorizontalCard(self, index):
+        return (AppiumBy.XPATH,
+                f"//*[@resource-id= 'com.chrysler.JeepBOH:id/composeHorizontalList']/android.view.View/android.view.View/android.view.View[{index}]")
+    trayEventList = (AppiumBy.XPATH, '(//android.view.View[@content-desc="Badge Earned"])')
+    trayChallengeList = (AppiumBy.XPATH, '(//android.widget.TextView[@text="Challenge"])')
+    def getChallenge(self, index):
+        return (AppiumBy.XPATH, f"(//android.view.View[@content-desc='Badge Earned'])[{index}]")
+
+    trayChallenge = (AppiumBy.XPATH, '//android.widget.TextView[@text="Challenge"]')
+    searchTextBox = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/search_bubble_edit_text')
+    def searchResult(self, text):
+        return (AppiumBy.XPATH, f"*//[contains(text(), '{text}')]")
+    sortButton = (AppiumBy.XPATH, '//android.widget.TextView[@text="Sort By:"]')
+
+    trayPinMapList = (AppiumBy.XPATH, '//android.view.View[contains(@content-desc, "Trail")]')
+    def getPinMap(self, index):
+        return (AppiumBy.XPATH, f"//android.view.View[contains(@content-desc, 'Trail')][{index}]")
+
+class eventsTrailMapScreen(Driver):
+    eventsTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textToolbarMainTitle')
+    allTrailActivityList = (AppiumBy.XPATH, '(//*[@resource-id="com.chrysler.JeepBOH:id/layoutEventConstraintRoot"])')
+
+
 
 
     
