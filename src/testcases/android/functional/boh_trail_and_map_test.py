@@ -23,7 +23,7 @@ class TestBoHTrailAndMap(Driver):
         super().tearDown()
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_tray_list_results_BOH19_TC643(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC643
@@ -77,7 +77,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.trailCardListDetails(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_multiple_pin_map_result_map_BOH19_TC2600(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC2600
@@ -97,7 +97,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.verifySwipeCardEventChallengeMap(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_pin_map_card_details_BOH19_TC2601(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC2601
@@ -122,7 +122,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.getTrayListResults(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_all_trail_events_BOH19_TC651(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC651
