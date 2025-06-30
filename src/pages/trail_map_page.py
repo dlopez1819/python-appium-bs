@@ -29,26 +29,36 @@ class TrailMapPage(Driver):
     def collapseTrayResults(self):
         TrailMapPage.__init__(self)
         if BoH.is_exist(self, self.locators.trailAndMapScreen.trailDragIndicator, False) or BoH.is_exist(self, self.locators.trailAndMapScreen.sortButton, True):
-            tray_drag_down = BoH.get_element_location(self, self.locators.trailAndMapScreen.sortButton)
-            SharedWorkflow.scrolling(self, tray_drag_down['x'] + 420, tray_drag_down['y'], tray_drag_down['x'] + 420,
-                                     tray_drag_down['y'] + 1500)
+            if self.appiumserver == 'local':
+                tray_drag_down = BoH.get_element_location(self, self.locators.trailAndMapScreen.sortButton)
+                SharedWorkflow.scrolling(self, tray_drag_down['x'] + 420, tray_drag_down['y'], tray_drag_down['x'] + 420,
+                                               tray_drag_down['y'] + 1500)
+            else:
+                SharedWorkflow.scrolling(self, 540, 470, 540, 1920)
         # VALIDATE TRAIL CARD COLLAPSED
         assert (BoH.is_exist(self, self.locators.trailAndMapScreen.trailDragIndicator, True)), "Tray Result is not collapsed"
 
     def cardDisplay(self):
         TrailMapPage.__init__(self)
-        tray_drag_up = BoH.get_element_location(self, self.locators.trailAndMapScreen.trailDragIndicator)
-        SharedWorkflow.scrolling(self, tray_drag_up['x'], tray_drag_up['y'], tray_drag_up['x'],
-                                 tray_drag_up['y'] - 1500)
+        if self.appiumserver == 'local':
+            tray_drag_up = BoH.get_element_location(self, self.locators.trailAndMapScreen.trailDragIndicator)
+            SharedWorkflow.scrolling(self, tray_drag_up['x'], tray_drag_up['y'], tray_drag_up['x'],
+                                      tray_drag_up['y'] - 1500)
+        else:
+            SharedWorkflow.scrolling(self, 540, 1840, 540, 470)
         assert (BoH.is_exist(self, self.locators.trailAndMapScreen.getTrayCard(self, 1), True)), "Tray Result is not collapsed"
 
     def swipeHorizontalTrailCard(self):
         TrailMapPage.__init__(self)
         card_X, card_Y, card_Height, card_Width = TrailMapPage.getHorizontalCardSize(self)
-        # Swipe Horizontal Left - Trail Cards
-        SharedWorkflow.scrolling(self, card_X + card_Width  + 30, card_Y + card_Height - 300, card_X - 50, card_Y + card_Height - 300)
-        # Swipe Horizontal Right - Trail Cards
-        SharedWorkflow.scrolling(self, card_X - 50, card_Y + card_Height - 300, card_X + card_Width + 30, card_Y + card_Height - 300)
+        if self.appiumserver == 'local':
+            # Swipe Horizontal Left - Trail Cards
+            SharedWorkflow.scrolling(self, card_X + card_Width  + 30, card_Y + card_Height - 300, card_X - 50, card_Y + card_Height - 300)
+            # Swipe Horizontal Right - Trail Cards
+            SharedWorkflow.scrolling(self, card_X - 50, card_Y + card_Height - 300, card_X + card_Width + 30, card_Y + card_Height - 300)
+        else:
+            SharedWorkflow.scrolling(self, 980, 1380, 70, 1380)
+            SharedWorkflow.scrolling(self, 90, 1380, 540, 985)
 
     def verifyTrayCardEventChalenge(self):
         TrailMapPage.__init__(self)
