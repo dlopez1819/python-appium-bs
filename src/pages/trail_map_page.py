@@ -29,23 +29,27 @@ class TrailMapPage(Driver):
     def collapseTrayResults(self):
         TrailMapPage.__init__(self)
         if BoH.is_exist(self, self.locators.trailAndMapScreen.trailDragIndicator, False) or BoH.is_exist(self, self.locators.trailAndMapScreen.sortButton, True):
+            tray_drag_down = BoH.get_element_location(self, self.locators.trailAndMapScreen.sortButton)
             if self.appiumserver == 'local':
-                tray_drag_down = BoH.get_element_location(self, self.locators.trailAndMapScreen.sortButton)
                 SharedWorkflow.scrolling(self, tray_drag_down['x'] + 420, tray_drag_down['y'], tray_drag_down['x'] + 420,
                                                tray_drag_down['y'] + 1500)
             else:
-                SharedWorkflow.scrolling(self, 540, 470, 540, 1600)
+                SharedWorkflow.scrolling(self, tray_drag_down['x'] + 420, tray_drag_down['y'], tray_drag_down['x'] + 420,
+                                               tray_drag_down['y'] + 1600)
+                #SharedWorkflow.scrolling(self, 540, 470, 540, 1600)
         # VALIDATE TRAIL CARD COLLAPSED
         assert (BoH.is_exist(self, self.locators.trailAndMapScreen.trailDragIndicator, True)), "Tray Result is not collapsed"
 
     def cardDisplay(self):
         TrailMapPage.__init__(self)
+        tray_drag_up = BoH.get_element_location(self, self.locators.trailAndMapScreen.trailDragIndicator)
         if self.appiumserver == 'local':
-            tray_drag_up = BoH.get_element_location(self, self.locators.trailAndMapScreen.trailDragIndicator)
             SharedWorkflow.scrolling(self, tray_drag_up['x'], tray_drag_up['y'], tray_drag_up['x'],
                                       tray_drag_up['y'] - 1500)
         else:
-            SharedWorkflow.scrolling(self, 540, 1600, 540, 570)
+            SharedWorkflow.scrolling(self, tray_drag_up['x'], tray_drag_up['y'], tray_drag_up['x'],
+                                      tray_drag_up['y'] - 1700)
+            #SharedWorkflow.scrolling(self, 540, 1600, 540, 570)
         assert (BoH.is_exist(self, self.locators.trailAndMapScreen.getTrayCard(self, 1), True)), "Tray Result is not collapsed"
 
     def swipeHorizontalTrailCard(self):
