@@ -109,7 +109,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.pinMapCardDetails(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_search_trail_BOH19_TC641_and_BOH19_TC2585(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC641 & BOH19-TC2585
