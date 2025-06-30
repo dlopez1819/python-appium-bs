@@ -34,7 +34,8 @@ class TrailMapPage(Driver):
                 SharedWorkflow.scrolling(self, tray_drag_down['x'] + 420, tray_drag_down['y'], tray_drag_down['x'] + 420,
                                                tray_drag_down['y'] + 1500)
             else:
-                SharedWorkflow.scrolling(self, 540, 470, 540, 1900)
+                #SharedWorkflow.scrolling(self, 540, 470, 540, 1900)
+                self.driver.execute_script("mobile:swipe", {"direction": "down"})
         # VALIDATE TRAIL CARD COLLAPSED
         assert (BoH.is_exist(self, self.locators.trailAndMapScreen.trailDragIndicator, True)), "Tray Result is not collapsed"
 
@@ -45,7 +46,8 @@ class TrailMapPage(Driver):
             SharedWorkflow.scrolling(self, tray_drag_up['x'], tray_drag_up['y'], tray_drag_up['x'],
                                       tray_drag_up['y'] - 1500)
         else:
-            SharedWorkflow.scrolling(self, 540, 1850, 540, 670)
+            #SharedWorkflow.scrolling(self, 540, 1850, 540, 670)
+            self.driver.execute_script("mobile:swipe", {"direction": "up"})
         assert (BoH.is_exist(self, self.locators.trailAndMapScreen.getTrayCard(self, 1), True)), "Tray Result is not collapsed"
 
     def swipeHorizontalTrailCard(self):
