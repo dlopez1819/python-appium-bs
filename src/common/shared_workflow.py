@@ -99,7 +99,7 @@ class SharedWorkflow(Driver):
             if self.apps == 'ios':
                 BrowserstackObjects.scroll_bs_down(self)
             else:
-                BoH.swipe_by_coordinates(self, startX, startY, endX, endY,500)
+                BoH.swipe_by_coordinates(self, startX, startY, endX, endY, 1000)
 
     def closePage(self):
         if self.apps == 'ios':
