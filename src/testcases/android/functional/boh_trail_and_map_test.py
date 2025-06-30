@@ -33,7 +33,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.getTrayListResults(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional22
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_collapsed_tray_results_BOH19_TC2586(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC2586
@@ -45,7 +45,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.collapseTrayResults(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional22
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_card_display_BOH19_TC2587(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC2587
