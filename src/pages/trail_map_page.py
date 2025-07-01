@@ -61,8 +61,8 @@ class TrailMapPage(Driver):
             # Swipe Horizontal Right - Trail Cards
             SharedWorkflow.scrolling(self, card_X - 50, card_Y + card_Height - 300, card_X + card_Width + 30, card_Y + card_Height - 300)
         else:
-            SharedWorkflow.scrolling(self, 980, 1380, 70, 1380)
-            SharedWorkflow.scrolling(self, 90, 1380, 540, 985)
+            BoH.swipe_by_coordinates(self, card_X + card_Width  + 30, card_Y + card_Height - 300, card_X - 50, card_Y + card_Height - 300, 900)
+            BoH.swipe_by_coordinates(self, card_X - 50, card_Y + card_Height - 300, card_X + card_Width + 30, card_Y + card_Height - 300, 900)
 
     def verifyTrayCardEventChalenge(self):
         TrailMapPage.__init__(self)
