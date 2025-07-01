@@ -87,7 +87,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.getMultiplePinMapResults(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional2
+    @pytest.mark.functional22
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     def test_boh_swipe_card_event_challenge_map_BOH19_TC2591(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC2591
