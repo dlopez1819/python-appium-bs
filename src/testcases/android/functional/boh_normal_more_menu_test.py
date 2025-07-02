@@ -78,7 +78,6 @@ class TestBoHNormalMoreMenu(Driver):
         HomePage.assertIfHomePage(self)
         MenuPage.faqs(self)
         FaqsPage.verifyFaqs(self)
-        FaqPage.closeFaqsPage(self)
 
     @pytest.mark.regression
     @pytest.mark.functional
