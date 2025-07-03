@@ -5,6 +5,7 @@ from src.helpers.appium_driver import Driver
 from src.pages.home_page import HomePage
 from src.pages.trail_map_events_page import TrailMapEventsPage
 from src.pages.trail_map_page import TrailMapPage
+from pytest_html_reporter import attach
 
 class Account:
     BoHCredentials = [
@@ -31,6 +32,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.getTrayListResults(self)
+        attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -43,6 +45,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.getTrayListResults(self)
         TrailMapPage.cardDisplay(self)
         TrailMapPage.collapseTrayResults(self)
+         attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -54,6 +57,7 @@ class TestBoHTrailAndMap(Driver):
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.getTrayListResults(self)
         TrailMapPage.cardDisplay(self)
+         attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -64,6 +68,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.verifyTrayCardEventChalenge(self)
+        attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -74,6 +79,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.cardDisplay(self)
+        attach(data=self.driver.get_screenshot_as_png())
         TrailMapPage.trailCardListDetails(self)
 
     @pytest.mark.regression
@@ -85,6 +91,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.getMultiplePinMapResults(self)
+        attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -95,6 +102,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.verifySwipeCardEventChallengeMap(self)
+        attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -106,6 +114,7 @@ class TestBoHTrailAndMap(Driver):
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.tapIndividualPinMap(self)
         TrailMapPage.horizontalCardPresent(self)
+        attach(data=self.driver.get_screenshot_as_png())
         TrailMapPage.pinMapCardDetails(self)
 
     @pytest.mark.regression
@@ -119,6 +128,7 @@ class TestBoHTrailAndMap(Driver):
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.cardDisplay(self)
         TrailMapPage.searchForTrail(self, search_trail)
+        attach(data=self.driver.get_screenshot_as_png())
         TrailMapPage.getTrayListResults(self)
 
     @pytest.mark.regression
@@ -133,4 +143,5 @@ class TestBoHTrailAndMap(Driver):
         BaseClassAppManager.tapLayoutTabsBar(self, 'LIST')
         TrailMapEventsPage.assertIfTrailMapEventsPage(self)
         TrailMapEventsPage.allTrailEventsPresent(self)
+        attach(data=self.driver.get_screenshot_as_png())
 
