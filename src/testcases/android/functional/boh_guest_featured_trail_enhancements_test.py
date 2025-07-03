@@ -28,7 +28,7 @@ class TestBoHGuestFeaturedTrail(Driver):
         
     @pytest.mark.regression
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_boh_guest_featured_trail_enhancements_BOH19_TC2563(self, test_email, test_pwd):
+    def test_guest_featured_trail_enhancements_BOH19_TC2563(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC-2563
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.guestUserLogin(self)
