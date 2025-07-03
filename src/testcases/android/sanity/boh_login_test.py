@@ -30,7 +30,7 @@ class TestBoHLogin(Driver):
     @allure.description("BoH Okta Login Test [BOH19-TC-666, BOH19-TC-574, BOH19-TC-2572, BOH19-TC-2569]")
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES: BOH19-TC-666, BOH19-TC-574, BOH19-TC-2572, BOH19-TC-2569
-    def test_boh_okta_login_BOH19_TC666(self, test_email, test_pwd):
+    def test_okta_login_BOH19_TC666(self, test_email, test_pwd):
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.oktaUserLogin(self, test_email, test_pwd)
         else:
@@ -43,7 +43,7 @@ class TestBoHLogin(Driver):
     @pytest.mark.regression
     @pytest.mark.skip
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_boh_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
+    def test_login_as_guest_BOH19_TC664(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC-664
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.guestUserLogin(self)
@@ -57,7 +57,7 @@ class TestBoHLogin(Driver):
     @pytest.mark.sanity
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
     # TEST CASES:  BOH19-TC-2572
-    def test_boh_logout_email_BOH19_TC2572(self, test_email, test_pwd):
+    def test_logout_email_BOH19_TC2572(self, test_email, test_pwd):
         if LoginPage.isNormalUserLoggedIn(self) is False:
             LoginPage.oktaUserLogin(self, test_email, test_pwd)
         else:
