@@ -25,7 +25,7 @@ class TestBoHUserContent(Driver):
     @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_boh_user_content_guidelines_BOH19_TC2540(self, test_email, test_pwd):
+    def test_user_content_guidelines_BOH19_TC2540(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC-2540
         self.locators = BoH.get_src_screen_enums(self)
         if LoginPage.isNormalUserLoggedIn(self) is False:
