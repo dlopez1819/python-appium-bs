@@ -149,7 +149,8 @@ class CheckInScreen(Driver):
                                   "After you check in, you can also request a hard badge, if you haven’t already.')]")
     checkInButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/trail_checkin_button")
     checkInTitle = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textToolbarDialogTitle")
-    closeButton = (AppiumBy.ACCESSIBILITY_ID, "Close")
+    #closeButton = (AppiumBy.ACCESSIBILITY_ID, "Close")
+    closeButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonToolbarDialogCancel")
     sorryCheckInMessage = (AppiumBy.ID, "com.chrysler.JeepBOH:id/textGeneralFragmentTitle")
     okCheckInButton = (AppiumBy.ID, "com.chrysler.JeepBOH:id/buttonGeneralFragmentPrimary")
 
@@ -225,6 +226,10 @@ class trailAndMapScreen(Driver):
                                      '/android.view.View/android.view.View/android.view.View')
     horizontalCardList = (AppiumBy.XPATH, '//*[@resource-id= "com.chrysler.JeepBOH:id/composeHorizontalList"]/android.view.View/android.view.View/android.view.View')
 
+    relativeMapLayout = (AppiumBy.XPATH, '//android.widget.RelativeLayout[2]')
+    suggestATrailView = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textSuggestTrailTitle')
+    noThanksButton = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonSuggestTrailNo')
+    suggestATrailButton= (AppiumBy.ID, 'com.chrysler.JeepBOH:id/buttonSuggestTrailNo')
     def getTrayCard(self, index):
         return (AppiumBy.XPATH, f"//*[@resource-id='com.chrysler.JeepBOH:id/destination_list_compose_view']/android.view.View/android.view.View/android.view.View[{index}]")
 
@@ -242,9 +247,12 @@ class trailAndMapScreen(Driver):
         return (AppiumBy.XPATH, f"*//[contains(text(), '{text}')]")
     sortButton = (AppiumBy.XPATH, '//android.widget.TextView[@text="Sort By:"]')
 
-    trayPinMapList = (AppiumBy.XPATH, '//android.view.View[contains(@content-desc, "Trail")]')
+    trayPinMapList = (AppiumBy.CLASS_NAME, 'android.view.View') 
     def getPinMap(self, index):
-        return (AppiumBy.XPATH, f"//android.view.View[contains(@content-desc, 'Trail')][{index}]")
+        return (AppiumBy.XPATH, f"//android.view.View[@content-desc='{index}']") 
+    def getIndexPin(selfself, index):
+        return (AppiumBy.XPATH, f"//android.view.View[@index='{index}']")
+
 
 class eventsTrailMapScreen(Driver):
     eventsTitle = (AppiumBy.ID, 'com.chrysler.JeepBOH:id/textToolbarMainTitle')
