@@ -14,6 +14,7 @@ class Account:
         ['diego11.lopez@nttdata.com', 'Password1']
     ]
 
+# Guest Feature was removed
 class TestBoHGuestFeaturedTrail(Driver):
     global flagLogin #userLogged
 
