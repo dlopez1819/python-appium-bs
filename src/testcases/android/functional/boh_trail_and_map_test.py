@@ -32,7 +32,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.getTrayListResults(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -45,7 +45,7 @@ class TestBoHTrailAndMap(Driver):
         TrailMapPage.getTrayListResults(self)
         TrailMapPage.cardDisplay(self)
         TrailMapPage.collapseTrayResults(self)
-         attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -57,18 +57,21 @@ class TestBoHTrailAndMap(Driver):
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.getTrayListResults(self)
         TrailMapPage.cardDisplay(self)
-         attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_tray_card_event_challenge_BOH19_TC2590(self, test_email, test_pwd):
+    def test_trail_card_event_challenge_BOH19_TC2590(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC2590
+        search_trail = 'Trail'
         BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
+        TrailMapPage.cardDisplay(self)
+        TrailMapPage.searchForTrail(self, search_trail)
         TrailMapPage.verifyTrayCardEventChalenge(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -79,7 +82,7 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.cardDisplay(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
         TrailMapPage.trailCardListDetails(self)
 
     @pytest.mark.regression
@@ -91,18 +94,32 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.getMultiplePinMapResults(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
 
     @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_swipe_card_event_challenge_map_BOH19_TC2591(self, test_email, test_pwd):
-        # TEST CASES: BOH19-TC2591
+    def test_boh_event_pin_map_swipe_horizontal_card_BOH21_TC2591(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC2591.
+        search_trail = 'event'
         BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
-        TrailMapPage.verifySwipeCardEventChallengeMap(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        TrailMapPage.searchForTrail(self, search_trail)
+        TrailMapPage.swipeHorCardTrailEventChallengeMap(self, search_trail)
+        #attach(data=self.driver.get_screenshot_as_png())
+
+    @pytest.mark.regression
+    @pytest.mark.functional
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_trail_pin_map_swipe_horizontal_card_BOH21_TC2591(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC2591.
+        search_trail = 'trail'
+        BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
+        HomePage.assertIfHomePage(self)
+        BaseClassAppManager.tapBottomNavBar(self, 2)
+        TrailMapPage.searchForTrail(self, search_trail)
+        TrailMapPage.swipeHorCardTrailEventChallengeMap(self, search_trail)
 
     @pytest.mark.regression
     @pytest.mark.functional
@@ -113,35 +130,77 @@ class TestBoHTrailAndMap(Driver):
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.tapIndividualPinMap(self)
-        TrailMapPage.horizontalCardPresent(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        TrailMapPage.ishorizontalCardPresent(self)
+        #attach(data=self.driver.get_screenshot_as_png())
         TrailMapPage.pinMapCardDetails(self)
 
     @pytest.mark.regression
     @pytest.mark.functional
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_search_trail_BOH19_TC641_and_BOH19_TC2585(self, test_email, test_pwd):
+    def test_search_by_trail_BOH19_TC641_and_BOH19_TC2585(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC641 & BOH19-TC2585
-        search_trail = 'Twisted'
+        search_trail = 'Trail'
         BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 2)
         TrailMapPage.cardDisplay(self)
         TrailMapPage.searchForTrail(self, search_trail)
-        attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
         TrailMapPage.getTrayListResults(self)
 
     @pytest.mark.regression
-    @pytest.mark.functional
+    @pytest.mark.functional2
     @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
-    def test_all_trail_events_BOH19_TC651(self, test_email, test_pwd):
+    def test_boh_all_trail_events_BOH19_TC651(self, test_email, test_pwd):
         # TEST CASES: BOH19-TC651
-        search_trail = 'Twisted'
+        search_trail = 'Event'
         BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
         HomePage.assertIfHomePage(self)
         BaseClassAppManager.tapBottomNavBar(self, 5)
         BaseClassAppManager.tapLayoutTabsBar(self, 'LIST')
         TrailMapEventsPage.assertIfTrailMapEventsPage(self)
         TrailMapEventsPage.allTrailEventsPresent(self)
-        attach(data=self.driver.get_screenshot_as_png())
+        #attach(data=self.driver.get_screenshot_as_png())
+
+    @pytest.mark.regression
+    @pytest.mark.functional2
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_search_trail_by_event_BOH19_TC641_and_BOH19_TC2585(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC641 & BOH19-TC2585
+        search_trail = 'Event'
+        BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
+        HomePage.assertIfHomePage(self)
+        BaseClassAppManager.tapBottomNavBar(self, 2)
+        TrailMapPage.cardDisplay(self)
+        TrailMapPage.searchForTrail(self, search_trail)
+        # attach(data=self.driver.get_screenshot_as_png())
+        TrailMapPage.getTrayListResults(self)
+
+    @pytest.mark.regression
+    @pytest.mark.functional2
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_search_trail_by_challenge_BOH19_TC641_and_BOH19_TC2585(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC641 & BOH19-TC2585
+        search_trail = 'Challenge'
+        BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
+        HomePage.assertIfHomePage(self)
+        BaseClassAppManager.tapBottomNavBar(self, 2)
+        TrailMapPage.cardDisplay(self)
+        TrailMapPage.searchForTrail(self, search_trail)
+        # attach(data=self.driver.get_screenshot_as_png())
+        TrailMapPage.getTrayListResults(self)
+
+    @pytest.mark.regression
+    @pytest.mark.functional2
+    @pytest.mark.parametrize('test_email, test_pwd', Account.BoHCredentials)
+    def test_boh_search_trail_by_limited_BOH19_TC641_and_BOH19_TC2585(self, test_email, test_pwd):
+        # TEST CASES: BOH19-TC641 & BOH19-TC2585
+        search_trail = 'Limited'
+        BaseClassAppManager.userLoginSkipHeadsUp(self, test_email, test_pwd)
+        HomePage.assertIfHomePage(self)
+        BaseClassAppManager.tapBottomNavBar(self, 2)
+        TrailMapPage.cardDisplay(self)
+        TrailMapPage.searchForTrail(self, search_trail)
+        # attach(data=self.driver.get_screenshot_as_png())
+        TrailMapPage.getTrayListResults(self)
 
